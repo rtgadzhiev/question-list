@@ -1,0 +1,33 @@
+.header {
+  background-color: var(--color-white);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 8px;
+}
+
+.headerNavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 52px;
+}
+
+.headerLogo {
+  flex-shrink: 0;
+}
+
+@media (width <= 1170px) {
+  .headerNavigation {
+    column-gap: 30px;
+  }
+}
+
+@media (width <= 768px) {
+  .headerNavigation {
+    column-gap: 20px;
+  }
+}
