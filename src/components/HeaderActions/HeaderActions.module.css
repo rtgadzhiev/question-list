@@ -7,19 +7,21 @@
 
 @media (width < 1100px) {
   .loginMenuButtons {
+    visibility: hidden;
     flex-direction: column;
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: var(--color-beige);
-    transform: translateX(100vw);
-    transition: var(--transition-duration) transform;
+    transform: translateX(100%);
+    transition: transform var(--transition-duration);
   }
 
   .loginMenuButtons.isOpen {
+    visibility: visible;
     transform: translateX(0);
   }
 }

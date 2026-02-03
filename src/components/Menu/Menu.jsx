@@ -2,19 +2,19 @@ import Link from '../Link/Link';
 import styles from './Menu.module.css';
 
 const menuItems = [
-  { id: 1, title: 'База вопросов' },
+  { id: 1, title: 'База вопросов', isActive: true },
   { id: 2, title: 'Тренажёр' },
   { id: 3, title: 'Материалы' },
   { id: 4, title: 'Навыки (hh)' },
 ];
 
-function Menu() {
+function Menu({ className }) {
   return (
-    <nav>
+    <nav className={className}>
       <ul className={styles.menuList}>
         {menuItems.map((item) => (
           <li key={item.id}>
-            <Link title={item.title} />
+            <Link title={item.title} isActive={item.isActive} />
           </li>
         ))}
       </ul>

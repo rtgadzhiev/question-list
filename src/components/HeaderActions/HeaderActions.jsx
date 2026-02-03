@@ -2,11 +2,13 @@ import BurgerButton from '../BurgerButton/BurgerButton';
 import Button from '../Button/Button';
 import Link from '../Link/Link';
 import clsx from 'clsx';
-import styles from './ HeaderLoginMenu.module.css';
+import styles from './HeaderActions.module.css';
 import { useState } from 'react';
 
-function HeaderLoginMenu() {
+function HeaderActions() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
     <>
@@ -16,12 +18,9 @@ function HeaderLoginMenu() {
         <Link title="Вход" />
         <Button title="Регистрация" />
       </div>
-      <BurgerButton
-        onClick={() => setIsOpen((prev) => !prev)}
-        isOpen={isOpen}
-      />
+      <BurgerButton onClick={toggleMenu} isOpen={isOpen} />
     </>
   );
 }
 
-export default HeaderLoginMenu;
+export default HeaderActions;

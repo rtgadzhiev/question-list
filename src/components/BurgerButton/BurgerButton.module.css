@@ -8,7 +8,7 @@
     display: block;
     width: 32px;
     height: 32px;
-    background-color: var(--color-white);
+    background-color: transparent;
     border: none;
   }
 
@@ -21,7 +21,7 @@
     left: 50%;
     border-radius: 10px;
     transform: translate(-50%, -50%);
-    transition: var(--transition-duration) transform;
+    transition: transform var(--transition-duration);
   }
 
   .burgerButtonLine:first-child {

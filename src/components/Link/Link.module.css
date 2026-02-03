@@ -3,3 +3,7 @@
   line-height: 1.4;
   color: var(--color-black-900);
 }
+
+.link.isActive {
+  color: var(--color-purple-600);
+}

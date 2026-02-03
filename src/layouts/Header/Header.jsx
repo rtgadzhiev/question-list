@@ -1,21 +1,14 @@
-import Accordeon from '../../components/Accordeon/Accordeon';
 import Container from '../Container/Container';
-import HeaderLoginMenu from '../../components/ HeaderLoginMenu/ HeaderLoginMenu';
-import Logo from '../../components/Logo/Logo';
-import Menu from '../../components/Menu/Menu';
+import HeaderActions from '../../components/HeaderActions/HeaderActions';
+import HeaderNavigation from '../../components/HeaderNavigation/HeaderNavigation';
 import styles from './Header.module.css';
 
 function Header() {
   return (
     <header className={styles.header}>
       <Container className={styles.headerContent}>
-        <div className={styles.headerNavigation}>
-          <Logo className={styles.headerLogo} />
-          <Accordeon title="Подготовка">
-            <Menu />
-          </Accordeon>
-        </div>
-        <HeaderLoginMenu />
+        <HeaderNavigation />
+        <HeaderActions />
       </Container>
     </header>
   );
