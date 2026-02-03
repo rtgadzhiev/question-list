@@ -1,0 +1,12 @@
+.menuList {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+}
+
+@media (width <= 768px) {
+  .menuList {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,8 @@
+.accordeonArrow {
+  transform: rotate(0);
+  transition: transform var(--transition-duration);
+}
+
+.accordeonArrow.isOpen {
+  transform: rotate(180deg);
+}
