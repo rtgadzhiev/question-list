@@ -1,3 +1,9 @@
-.container {
-  margin-inline: 112px;
+.visibleTablet {
+  display: none;
+}
+
+@media (width <= 768px) {
+  .visibleTablet {
+    display: block;
+  }
 }

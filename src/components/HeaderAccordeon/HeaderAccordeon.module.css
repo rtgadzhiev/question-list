@@ -1,0 +1,35 @@
+.headerAccordeonButton {
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+.headerAccordeonArrow {
+  padding: 8px 4px;
+}
+
+@media (width <= 768px) {
+  .headerAccordeonContent {
+    visibility: hidden;
+    min-width: 150px;
+    padding: 10px;
+    position: absolute;
+    opacity: 0;
+    top: 36px;
+    left: 0;
+    transition-duration: var(--transition-duration);
+    border: var(--border);
+    border-radius: var(--border-radius);
+  }
+
+  .headerAccordeonButton {
+    display: flex;
+  }
+
+  .headerAccordeonContent.isOpen {
+    visibility: visible;
+    opacity: 100%;
+  }
+}

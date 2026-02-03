@@ -1,0 +1,12 @@
+.headerNavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 52px;
+}
+
+@media (width <= 768px) {
+  .headerNavigation {
+    column-gap: 20px;
+  }
+}
