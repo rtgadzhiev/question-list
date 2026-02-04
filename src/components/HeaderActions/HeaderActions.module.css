@@ -17,7 +17,7 @@
     left: 0;
     background-color: var(--color-beige);
     transform: translateX(100%);
-    transition: transform var(--transition-duration);
+    transition-duration: var(--transition-duration);
   }
 
   .loginMenuButtons.isOpen {

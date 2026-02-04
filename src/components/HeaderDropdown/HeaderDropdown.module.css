@@ -1,4 +1,4 @@
-.headerAccordeonButton {
+.headerDropdownButton {
   padding: 0;
   justify-content: space-between;
   align-items: center;
@@ -6,12 +6,12 @@
   background-color: transparent;
 }
 
-.headerAccordeonArrow {
+.headerDropdownArrow {
   padding: 8px 4px;
 }
 
 @media (width <= 768px) {
-  .headerAccordeonContent {
+  .headerDropdownContent {
     visibility: hidden;
     min-width: 150px;
     padding: 10px;
@@ -24,11 +24,11 @@
     border-radius: var(--border-radius);
   }
 
-  .headerAccordeonButton {
+  .headerDropdownButton {
     display: flex;
   }
 
-  .headerAccordeonContent.isOpen {
+  .headerDropdownContent.isOpen {
     visibility: visible;
     opacity: 100%;
   }
