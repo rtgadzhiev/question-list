@@ -17,11 +17,12 @@
     padding: 10px;
     position: absolute;
     opacity: 0;
-    top: 36px;
-    left: 0;
+    top: 35px;
+    left: -10px;
     transition-duration: var(--transition-duration);
-    border: var(--border);
-    border-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius-s);
+    border-bottom-right-radius: var(--border-radius-s);
+    background-color: var(--color-white);
   }
 
   .headerDropdownButton {
