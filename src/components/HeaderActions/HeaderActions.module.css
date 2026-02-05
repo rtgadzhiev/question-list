@@ -15,7 +15,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--color-beige);
+    background-color: var(--color-white);
     transform: translateX(100%);
     transition-duration: var(--transition-duration);
   }

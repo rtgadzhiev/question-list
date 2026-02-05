@@ -1,0 +1,11 @@
+.socialsList {
+  display: flex;
+  gap: 8px;
+}
+
+@media (width <= 768px) {
+  .socialsIcon {
+    width: 20px;
+    height: 20px;
+  }
+}

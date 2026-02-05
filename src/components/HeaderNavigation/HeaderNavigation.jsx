@@ -5,7 +5,7 @@ import styles from './HeaderNavigation.module.css';
 function HeaderNavigation() {
   return (
     <div className={styles.headerNavigation}>
-      <Logo />
+      <Logo isTextHiddenOnMobile={true} isLogo={true} />
       <HeaderDropdown />
     </div>
   );
