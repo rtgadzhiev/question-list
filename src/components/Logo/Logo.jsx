@@ -1,15 +1,23 @@
 import clsx from 'clsx';
 import logo from '../../assets/images/icons/yeahub-icon.svg';
 import styles from './Logo.module.css';
-import text from '../../assets/images/icons/yeahub-text-icon.svg';
+import textDark from '../../assets/images/icons/yeahub-text-icon-dark.svg';
+import textLight from '../../assets/images/icons/yeahub-text-icon-light.svg';
 
-function Logo({ className }) {
+function Logo({
+  className,
+  isLogo = false,
+  isTextLight,
+  isTextHiddenOnMobile,
+}) {
   return (
     <a className={clsx(styles.logo, className)} href="#">
-      <img src={logo} alt="" width="33" height="33" />
+      {isLogo && <img src={logo} alt="" width="33" height="33" />}
       <img
-        className={styles.logoText}
-        src={text}
+        className={clsx(styles.logoText, {
+          [styles.hidden]: isTextHiddenOnMobile,
+        })}
+        src={isTextLight ? textLight : textDark}
         alt=""
         width="99"
         height="32"
