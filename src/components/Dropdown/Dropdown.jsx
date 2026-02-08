@@ -1,10 +1,36 @@
+import clsx from 'clsx';
 import styles from './Dropdown.module.css';
 
-function Dropdown({ header, isOpen, onClick, children }) {
+function Dropdown({
+  trigger,
+  content,
+  isOpen,
+  onToggle,
+  ref,
+  isMobile = false,
+  position,
+}) {
+  console.log(ref);
   return (
-    <div className={styles.dropdown}>
-      {header({ isOpen, onClick })}
-      {children}
+    <div ref={ref} className={styles.dropdown}>
+      <button
+        className={clsx(styles.dropdownButton, {
+          [styles.isMobile]: isMobile,
+        })}
+        onClick={onToggle}
+      >
+        {trigger}
+      </button>
+      <div
+        className={clsx(styles.dropdownContent, {
+          [styles.isOpen]: isOpen,
+          [styles.isMobile]: isMobile,
+          [styles.left]: position === 'left',
+          [styles.right]: position === 'right',
+        })}
+      >
+        {content}
+      </div>
     </div>
   );
 }

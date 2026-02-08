@@ -1,7 +1,12 @@
+import QuestionsSection from '../../components/QuestionsSection/QuestionsSection';
 import styles from './MainContent.module.css';
 
-function MainContent({ children }) {
-  return <main className={styles.mainContent}>{children}</main>;
+function MainContent() {
+  return (
+    <main className={styles.mainContent}>
+      <QuestionsSection />
+    </main>
+  );
 }
 
 export default MainContent;

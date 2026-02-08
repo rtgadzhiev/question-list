@@ -11,6 +11,7 @@
 
 @media (width <= 768px) {
   .header {
+    padding-block: 11px;
     border-bottom: var(--border-gray-50);
   }
 }

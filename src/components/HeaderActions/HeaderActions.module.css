@@ -18,6 +18,7 @@
     background-color: var(--color-white);
     transform: translateX(100%);
     transition-duration: var(--transition-duration);
+    z-index: 900;
   }
 
   .loginMenuButtons.isOpen {

@@ -4,7 +4,7 @@ import styles from './MainPage.module.css';
 function MainPage() {
   return (
     <>
-      <Layout>123</Layout>
+      <Layout />
     </>
   );
 }

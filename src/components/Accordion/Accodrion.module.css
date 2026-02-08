@@ -1,0 +1,8 @@
+.accordion {
+  padding-top: 24px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  list-style-type: none;
+}
