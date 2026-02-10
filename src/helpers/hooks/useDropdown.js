@@ -5,7 +5,6 @@ function useDropdown(initialState) {
   const [isOpen, setIsOpen] = useState(initialState);
   const toggleDropdown = (e) => {
     if (e.target) {
-      console.log(e.target);
       setIsOpen((prev) => !prev);
     }
   };
