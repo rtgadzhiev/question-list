@@ -1,10 +1,18 @@
-import { useRef, useState } from 'react';
+import useClickOutside from './useClickOutside';
+import { useState } from 'react';
 
 function useDropdown(initialState) {
   const [isOpen, setIsOpen] = useState(initialState);
-  const dropdownRef = useRef(null);
-
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
+  const toggleDropdown = (e) => {
+    if (e.target) {
+      console.log(e.target);
+      setIsOpen((prev) => !prev);
+    }
+  };
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+  const dropdownRef = useClickOutside(closeDropdown);
 
   return [isOpen, toggleDropdown, dropdownRef];
 }

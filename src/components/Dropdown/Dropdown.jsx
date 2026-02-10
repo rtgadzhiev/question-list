@@ -1,19 +1,21 @@
 import clsx from 'clsx';
 import styles from './Dropdown.module.css';
 
-function Dropdown({
-  trigger,
-  content,
-  isOpen,
-  onToggle,
-  ref,
-  isMobile = false,
-  position,
-}) {
-  console.log(ref);
+function Dropdown(props) {
+  const {
+    trigger,
+    content,
+    isOpen,
+    onToggle,
+    ref,
+    isMobile = false,
+    position,
+  } = props;
+
   return (
-    <div ref={ref} className={styles.dropdown}>
+    <div className={styles.dropdown}>
       <button
+        ref={ref}
         className={clsx(styles.dropdownButton, {
           [styles.isMobile]: isMobile,
         })}

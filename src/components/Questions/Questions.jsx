@@ -16,5 +16,3 @@ function Questions({ questions }) {
 }
 
 export default Questions;
-
-// TODO: Accordeon, QuestionFilters,
