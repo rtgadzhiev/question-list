@@ -8,13 +8,13 @@
   border-radius: var(--border-radius-xs);
 }
 
-.metricCardTitle {
+.title {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.2;
 }
 
-.metricCardScore {
+.score {
   padding: 2px 4px;
   font-size: 14px;
   line-height: 1.2;

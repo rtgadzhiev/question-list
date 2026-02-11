@@ -1,18 +1,18 @@
-import Accordion from '../Accordion/Accordion';
 import Card from '../Card/Card';
 import Pagination from '../Pagination/Pagination';
-import styles from './Questions.module.css';
+import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
+import styles from './QuestionsCard.module.css';
 
-function Questions({ questions }) {
+function QuestionsCard({ questions }) {
   return (
     <Card>
       <div className={styles.questionsContainer}>
         <h1 className={styles.questionsTitle}>Вопросы</h1>
-        <Accordion items={questions} />
+        <QuestionsAccordion questions={questions} />
         <Pagination />
       </div>
     </Card>
   );
 }
 
-export default Questions;
+export default QuestionsCard;

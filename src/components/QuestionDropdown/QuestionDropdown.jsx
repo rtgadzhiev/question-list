@@ -15,13 +15,7 @@ function QuestionDropdown() {
       isOpen={isOpen}
       onToggle={toggleDropdown}
       trigger={
-        <img
-          className={styles.questionDropdownIcon}
-          src={icon}
-          alt=""
-          width="15"
-          height="15"
-        />
+        <img className={styles.icon} src={icon} alt="" width="15" height="15" />
       }
       content={<Link title="Подробнее" />}
       position={dropdownPosistion}
