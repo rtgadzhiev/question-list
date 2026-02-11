@@ -3,6 +3,7 @@ import styles from './Dropdown.module.css';
 
 function Dropdown(props) {
   const {
+    className,
     trigger,
     content,
     isOpen,
@@ -13,7 +14,7 @@ function Dropdown(props) {
   } = props;
 
   return (
-    <div className={styles.dropdown}>
+    <div className={clsx(styles.dropdown, className)}>
       <button
         ref={ref}
         className={clsx(styles.dropdownButton, {

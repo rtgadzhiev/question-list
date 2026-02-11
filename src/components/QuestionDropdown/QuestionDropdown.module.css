@@ -1,3 +1,13 @@
+.dropdown {
+  display: block;
+}
+
 .icon {
   padding-inline: 6px;
+}
+
+@media (width < 768px) {
+  .dropdown {
+    display: none;
+  }
 }

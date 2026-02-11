@@ -3,7 +3,7 @@ import styles from './QuestionsAccordion.module.css';
 import useAccordion from '../../helpers/hooks/useAccordion';
 
 function QuestionsAccordion({ questions }) {
-  const { isOpen, toggleItem } = useAccordion();
+  const { isOpen, toggle } = useAccordion();
 
   return (
     <ul className={styles.questionsAccordion}>
@@ -12,7 +12,8 @@ function QuestionsAccordion({ questions }) {
           key={question.id}
           question={question}
           isOpen={isOpen(question.id)}
-          onToggle={() => toggleItem(question.id)}
+          onToggle={toggle}
+          questionId={question.id}
         />
       ))}
     </ul>

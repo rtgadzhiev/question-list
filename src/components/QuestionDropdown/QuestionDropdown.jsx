@@ -11,6 +11,7 @@ function QuestionDropdown() {
 
   return (
     <Dropdown
+      className={styles.dropdown}
       ref={dropdownRef}
       isOpen={isOpen}
       onToggle={toggleDropdown}

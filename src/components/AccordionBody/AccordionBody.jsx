@@ -1,17 +1,18 @@
 import clsx from 'clsx';
 import styles from './AccordionBody.module.css';
+import useHeightObserver from '../../helpers/hooks/useHeightObserver';
 
-function AccordionBody({ children, bodyRef, isOpen }) {
+function AccordionBody({ children, isOpen }) {
+  const { contentRef, height } = useHeightObserver();
+
   return (
     <div
-      className={clsx(styles.collapse, {
-        [styles.isOpen]: isOpen,
-      })}
-      style={
-        isOpen ? { height: bodyRef.current.scrollHeight } : { height: '0px' }
-      }
+      className={clsx(styles.collapse)}
+      style={{
+        height: isOpen ? height : '0px',
+      }}
     >
-      <div ref={bodyRef} className={styles.body}>
+      <div ref={contentRef} className={styles.body}>
         {children}
       </div>
     </div>

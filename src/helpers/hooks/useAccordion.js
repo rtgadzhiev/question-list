@@ -1,25 +1,28 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 function useAccordion() {
   const [openIds, setOpenIds] = useState(new Set());
 
-  const toggleItem = (id) => {
-    setOpenIds((prev) => {
-      const newSet = new Set(prev);
+  const toggle = useCallback(
+    (id) => {
+      setOpenIds((prev) => {
+        const newSet = new Set(prev);
 
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
-      }
+        if (newSet.has(id)) {
+          newSet.delete(id);
+        } else {
+          newSet.add(id);
+        }
 
-      return newSet;
-    });
-  };
+        return newSet;
+      });
+    },
+    [setOpenIds],
+  );
 
-  const isOpen = (id) => openIds.has(id);
+  const isOpen = useCallback((id) => openIds.has(id), [openIds]);
 
-  return { isOpen, toggleItem };
+  return { isOpen, toggle };
 }
 
 export default useAccordion;

@@ -1,3 +1,5 @@
+import { memo, useCallback } from 'react';
+
 import AccordionBody from '../AccordionBody/AccordionBody';
 import AccordionTrigger from '../AccordionTrigger/AccordionTrigger';
 import Arrow from '../Arrow/Arrow';
@@ -5,18 +7,21 @@ import Metrics from '../Metrics/Metrics';
 import QuestionDropdown from '../QuestionDropdown/QuestionDropdown';
 import arrow from '../../assets/images/icons/accordion-arrow-icon.svg';
 import styles from './QuestionsAccordionItem.module.css';
-import { useRef } from 'react';
 
-function QuestionsAccordionItem({ question, isOpen, onToggle }) {
-  const bodyRef = useRef(null);
+const QuestionsAccordionItem = memo((props) => {
+  const { question, isOpen, onToggle, questionId } = props;
+
+  const handleToggle = useCallback(() => {
+    onToggle(questionId);
+  }, [onToggle, questionId]);
 
   return (
     <li className={styles.accordionItem}>
-      <AccordionTrigger isOpen={isOpen} onToggle={onToggle}>
+      <AccordionTrigger isOpen={isOpen} onToggle={handleToggle}>
         <p className={styles.title}>{question.title}</p>
         <Arrow className={styles.arrow} isOpen={isOpen} arrow={arrow} />
       </AccordionTrigger>
-      <AccordionBody bodyRef={bodyRef} isOpen={isOpen}>
+      <AccordionBody isOpen={isOpen}>
         <div className={styles.bodyHeader}>
           <Metrics rate={question.rate} complexity={question.complexity} />
           <QuestionDropdown />
@@ -26,6 +31,6 @@ function QuestionsAccordionItem({ question, isOpen, onToggle }) {
       </AccordionBody>
     </li>
   );
-}
+});
 
 export default QuestionsAccordionItem;
