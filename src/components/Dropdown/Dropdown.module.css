@@ -24,6 +24,7 @@
   z-index: 800;
   visibility: hidden;
   opacity: 0;
+  box-shadow: var(--box-shadow);
 }
 
 .dropdownContent.right {
@@ -39,12 +40,6 @@
   opacity: 100%;
 }
 
-@media (width < 1024px) {
-  .dropdownContent {
-    box-shadow: var(--box-shadow);
-  }
-}
-
 @media (width > 1024px) {
   .dropdownButton.isMobile {
     display: none;
@@ -54,5 +49,6 @@
     position: static;
     visibility: visible;
     opacity: 100%;
+    box-shadow: none;
   }
 }
