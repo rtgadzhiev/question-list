@@ -5,6 +5,15 @@
   gap: 26px;
 }
 
+.wrapper {
+  display: flex;
+}
+
+.link {
+  padding: 12px 28px;
+  width: 100%;
+}
+
 @media (width <= 768px) {
   .loginMenuButtons {
     visibility: hidden;
@@ -24,5 +33,14 @@
   .loginMenuButtons.isOpen {
     visibility: visible;
     transform: translateX(0);
+  }
+
+  .wrapper {
+    max-width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
   }
 }

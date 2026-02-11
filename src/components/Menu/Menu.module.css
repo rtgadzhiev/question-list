@@ -1,6 +1,6 @@
 .menuList {
   display: flex;
-  gap: 20px;
+  column-gap: 12px;
   list-style-type: none;
   color: var(--color-black-900);
 }
@@ -8,6 +8,6 @@
 @media (width <= 1024px) {
   .menuList {
     flex-direction: column;
-    gap: 16px;
+    row-gap: 8px;
   }
 }

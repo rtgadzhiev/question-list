@@ -16,7 +16,7 @@
   min-width: 150px;
   padding: 10px;
   position: absolute;
-  top: 35px;
+  top: 25px;
   transition-duration: var(--transition-duration);
   border-bottom-left-radius: var(--border-radius-s);
   border-bottom-right-radius: var(--border-radius-s);
@@ -37,6 +37,12 @@
 .dropdownContent.isOpen {
   visibility: visible;
   opacity: 100%;
+}
+
+@media (width < 1024px) {
+  .dropdownContent {
+    box-shadow: var(--box-shadow);
+  }
 }
 
 @media (width > 1024px) {

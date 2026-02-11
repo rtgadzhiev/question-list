@@ -18,7 +18,7 @@ function QuestionDropdown() {
       trigger={
         <img className={styles.icon} src={icon} alt="" width="15" height="15" />
       }
-      content={<Link title="Подробнее" />}
+      content={<Link>Подробнее</Link>}
       position={dropdownPosistion}
     />
   );

@@ -14,7 +14,7 @@ function Menu({ className }) {
       <ul className={styles.menuList}>
         {menuItems.map((item) => (
           <li key={item.id}>
-            <Link title={item.title} isActive={item.isActive} />
+            <Link isActive={item.isActive}>{item.title}</Link>
           </li>
         ))}
       </ul>

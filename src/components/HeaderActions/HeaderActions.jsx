@@ -15,8 +15,10 @@ function HeaderActions() {
       <div
         className={clsx(styles.loginMenuButtons, { [styles.isOpen]: isOpen })}
       >
-        <Link title="Вход" />
-        <Button title="Регистрация" />
+        <div className={styles.wrapper}>
+          <Link className={styles.link}>Вход</Link>
+          <Button>Регистрация</Button>
+        </div>
       </div>
       <BurgerButton onClick={toggleMenu} isOpen={isOpen} />
     </>
