@@ -50,7 +50,7 @@ export default function getPaginationRange(currentPage, totalPages) {
   if (paginationType === 'start') {
     for (let i = 0; i < rangeLength; i++) {
       if (i === rangeLength - 2) {
-        range.push('...');
+        range.push(null);
       } else if (i === rangeLength - 1) {
         range.push(totalPages);
       } else {
@@ -61,7 +61,7 @@ export default function getPaginationRange(currentPage, totalPages) {
   } else if (paginationType === 'middle') {
     for (let i = 0; i < rangeLength; i++) {
       if (i === 1 || i === rangeLength - 2) {
-        range.push('...');
+        range.push(null);
       } else if (i === rangeLength - 1) {
         range.push(totalPages);
       } else if (i === 0) {
@@ -76,7 +76,7 @@ export default function getPaginationRange(currentPage, totalPages) {
       if (i === 0) {
         range.push(1);
       } else if (i === 1) {
-        range.push('...');
+        range.push(null);
       } else {
         range.push(page);
         page += 1;

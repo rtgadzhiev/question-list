@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.button.isActive {
+  padding: 5px 6px;
+  background-color: var(--color-purple-700);
+  border: none;
+  color: var(--color-white);
+  border-radius: var(--border-radius-xxxs);
+}
+
+.arrow {
+  padding: 8px 6px;
+  border-radius: 1000px;
+  border: var(--border-purple-700);
+}
