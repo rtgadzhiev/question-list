@@ -2,20 +2,22 @@ import QuestionsAccordionItem from '../QuestionsAccordionItem/QuestionsAccordion
 import styles from './QuestionsAccordion.module.css';
 import useAccordion from '../../helpers/hooks/useAccordion';
 
-function QuestionsAccordion({ questions }) {
+function QuestionsAccordion({ questions, isLoading }) {
   const { isOpen, toggle } = useAccordion();
 
   return (
     <ul className={styles.questionsAccordion}>
-      {questions.map((question) => (
-        <QuestionsAccordionItem
-          key={question.id}
-          question={question}
-          isOpen={isOpen(question.id)}
-          onToggle={toggle}
-          questionId={question.id}
-        />
-      ))}
+      {!isLoading
+        ? questions?.map((question) => (
+            <QuestionsAccordionItem
+              key={question.id}
+              question={question}
+              isOpen={isOpen(question.id)}
+              onToggle={toggle}
+              questionId={question.id}
+            />
+          ))
+        : 'Loading...'}
     </ul>
   );
 }

@@ -1,17 +1,24 @@
 import clsx from 'clsx';
 import elipsis from '../../assets/images/icons/pagination/pagination-ellipsis.svg';
-import getPaginationRange from '../../helpers/getPaginationRange';
 import leftArrow from '../../assets/images/icons/pagination/pagination-arrow-left.svg';
 import rightArrow from '../../assets/images/icons/pagination/pagination-arrow-right.svg';
 import styles from './Pagination.module.css';
 
-function Pagination({}) {
-  const range = getPaginationRange(6, 24);
-  let isActive = 6;
-
+function Pagination({
+  currentPage,
+  totalPages,
+  paginationRange,
+  handleNextPage,
+  handlePreviousPage,
+  handlePageClick,
+}) {
   return (
     <div className={styles.pagination}>
-      <button className={styles.button}>
+      <button
+        onClick={handlePreviousPage}
+        className={styles.button}
+        disabled={currentPage === 1}
+      >
         <img
           className={styles.arrow}
           src={leftArrow}
@@ -20,17 +27,23 @@ function Pagination({}) {
           height="28"
         />
       </button>
-      {range.map((pageNumber) => (
+      {paginationRange?.map((pageNumber, index) => (
         <button
-          key={pageNumber}
+          key={index}
+          onClick={() => handlePageClick(pageNumber)}
           className={clsx(styles.button, {
-            [styles.isActive]: pageNumber === isActive,
+            [styles.isActive]: pageNumber === currentPage,
           })}
+          disabled={pageNumber === currentPage}
         >
           {pageNumber || <img src={elipsis} alt="" width="8" height="2" />}
         </button>
       ))}
-      <button className={styles.button}>
+      <button
+        onClick={handleNextPage}
+        className={styles.button}
+        disabled={currentPage === totalPages}
+      >
         <img
           className={styles.arrow}
           src={rightArrow}
