@@ -2,43 +2,33 @@ import Arrow from '../Arrow/Arrow';
 import Dropdown from '../Dropdown/Dropdown';
 import Menu from '../Menu/Menu';
 import arrow from '../../assets/images/icons/dropdown-arrow-icon.svg';
-import clsx from 'clsx';
 import styles from './HeaderDropdown.module.css';
-import { useState } from 'react';
+import useDropdown from '../../helpers/hooks/useDropdown';
+import useDropdownPosition from '../../helpers/hooks/useDropdownPosition';
 
 function HeaderDropdown() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
+  const [isOpen, toggleDropdown, dropdownRef] = useDropdown(false);
+  const dropdownPosition = useDropdownPosition(dropdownRef);
 
   return (
     <Dropdown
-      onClick={toggleDropdown}
+      ref={dropdownRef}
       isOpen={isOpen}
-      header={({ isOpen, onClick }) => (
+      onToggle={toggleDropdown}
+      trigger={
         <>
-          <button
-            className={clsx('visibleTablet', styles.headerDropdownButton)}
-            onClick={onClick}
-          >
-            <span>Подготовка</span>
-            <Arrow
-              className={styles.headerDropdownArrow}
-              arrow={arrow}
-              isOpen={isOpen}
-            />
-          </button>
+          <span>Подготовка</span>
+          <Arrow
+            className={styles.headerDropdownArrow}
+            arrow={arrow}
+            isOpen={isOpen}
+          />
         </>
-      )}
-    >
-      <div
-        className={clsx(styles.headerDropdownContent, {
-          [styles.isOpen]: isOpen,
-        })}
-      >
-        <Menu className={styles.headerDropdownMenu} />
-      </div>
-    </Dropdown>
+      }
+      content={<Menu />}
+      isMobile={true}
+      position={dropdownPosition}
+    />
   );
 }
 
