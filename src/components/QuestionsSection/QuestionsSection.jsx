@@ -5,12 +5,12 @@ import { getPublicQuestions } from '../../api/apiQuestions';
 import styles from './QuestionsSection.module.css';
 import useFetch from '../../helpers/hooks/useFetch';
 import useFilters from '../../helpers/hooks/useFilters';
-import usePaginationRange from '../../helpers/hooks/usePaginationRange';
+import usePagination from '../../helpers/hooks/usePagination';
 
 function QuestionsSection() {
   const { filters, changeFilters } = useFilters({ page: 1, limit: 10 });
   const { data, isLoading } = useFetch(getPublicQuestions, filters);
-  const { totalPages, paginationRange } = usePaginationRange(
+  const { totalPages, paginationRange } = usePagination(
     filters?.page,
     data?.total,
     filters?.limit,
