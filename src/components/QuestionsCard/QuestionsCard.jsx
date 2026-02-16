@@ -1,6 +1,7 @@
 import Card from '../Card/Card';
 import Pagination from '../Pagination/Pagination';
 import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
+import Skeleton from '../Skeleton/Skeleton';
 import styles from './QuestionsCard.module.css';
 
 function QuestionsCard({

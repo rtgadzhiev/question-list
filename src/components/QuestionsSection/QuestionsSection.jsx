@@ -1,4 +1,5 @@
 import Container from '../../layouts/Container/Container';
+import { LIMIT } from '../../constants/constants';
 import QuestionsCard from '../QuestionsCard/QuestionsCard';
 import QuestionsFilters from '../QuestionsFilters/QuestionsFilters';
 import { getPublicQuestions } from '../../api/apiQuestions';
@@ -8,7 +9,8 @@ import useFilters from '../../helpers/hooks/useFilters';
 import usePagination from '../../helpers/hooks/usePagination';
 
 function QuestionsSection() {
-  const { filters, changeFilters } = useFilters({ page: 1, limit: 10 });
+  // TODO: Filters
+  const { filters, changeFilters } = useFilters({ page: 1, limit: LIMIT });
   const { data, isLoading } = useFetch(getPublicQuestions, filters);
   const { totalPages, paginationRange } = usePagination(
     filters?.page,

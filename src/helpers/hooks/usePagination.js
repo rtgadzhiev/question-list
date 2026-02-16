@@ -1,7 +1,8 @@
+import { LIMIT } from '../../constants/constants';
 import getPaginationRange from '../getPaginationRange';
 import { useMemo } from 'react';
 
-function usePagination(currentPage, totalQuestions = 160, limit = 10) {
+function usePagination(currentPage, totalQuestions = 1, limit = LIMIT) {
   const getTotalPages = (totalQuestions, limit) => {
     return Math.ceil(totalQuestions / limit);
   };
