@@ -10,6 +10,7 @@
     height: 32px;
     background-color: transparent;
     border: none;
+    z-index: 1000;
   }
 
   .burgerButton .burgerButtonLine {
@@ -26,12 +27,12 @@
 
   .burgerButtonLine:first-child {
     top: auto;
-    bottom: 20px;
+    bottom: 22px;
   }
 
   .burgerButtonLine:last-child {
     top: auto;
-    bottom: 8px;
+    bottom: 6px;
   }
 
   .burgerButtonLine:nth-child(2).isOpen {
@@ -39,10 +40,10 @@
   }
 
   .burgerButtonLine:first-child.isOpen {
-    transform: translate(-11px, 5px) rotate(-45deg);
+    transform: translate(-11px, 7px) rotate(-45deg);
   }
 
   .burgerButtonLine:last-child.isOpen {
-    transform: translate(-11px, -7px) rotate(45deg);
+    transform: translate(-11px, -9px) rotate(45deg);
   }
 }

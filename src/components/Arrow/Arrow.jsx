@@ -6,7 +6,7 @@ function Arrow({ className, arrow, width = 24, heigth = 24, isOpen }) {
     <img
       className={clsx(styles.arrow, { [styles.isOpen]: isOpen }, className)}
       src={arrow}
-      alt={isOpen ? 'Закрыть меню' : 'Открыть меню'}
+      alt={isOpen ? 'Закрыть' : 'Открыть'}
       width={width}
       height={heigth}
     />

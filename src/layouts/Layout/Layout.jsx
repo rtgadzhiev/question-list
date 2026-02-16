@@ -3,11 +3,11 @@ import Header from '../Header/Header';
 import MainContent from '../MainContent/MainContent';
 import styles from './Layout.module.css';
 
-function Layout({ children }) {
+function Layout() {
   return (
     <div className={styles.layout}>
       <Header />
-      <MainContent>{children}</MainContent>
+      <MainContent />
       <Footer />
     </div>
   );

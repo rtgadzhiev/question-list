@@ -1,9 +1,19 @@
 .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 6px;
   text-decoration: none;
   line-height: 1.4;
   color: var(--color-black-900);
+  border-radius: var(--border-radius-xs);
+  max-width: fit-content;
 }
 
 .link.isActive {
   color: var(--color-purple-600);
+}
+
+.link:hover {
+  background-color: var(--color-black-10);
 }
