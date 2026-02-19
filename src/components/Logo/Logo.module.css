@@ -1,17 +1,17 @@
 .logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .logoText {
-  display: block;
+    display: block;
 }
 
 @media (width < 420px) {
-  .hidden {
-    display: none;
-  }
+    .hidden {
+        display: none;
+    }
 }

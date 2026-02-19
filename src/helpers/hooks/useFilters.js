@@ -9,7 +9,7 @@ function useFilters(initialFilters) {
     });
   };
 
-  return { filters, changeFilters };
+  return [filters, changeFilters];
 }
 
 export default useFilters;

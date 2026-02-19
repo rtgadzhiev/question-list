@@ -1,0 +1,7 @@
+.filters {
+}
+
+@media (width <= 768px) {
+  .filters {
+  }
+}

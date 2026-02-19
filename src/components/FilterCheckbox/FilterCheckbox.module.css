@@ -1,0 +1,19 @@
+.checkbox {
+  display: inline-block;
+
+  border: var(--border-gray-200);
+  border-radius: var(--border-radius-s);
+}
+
+.label {
+  display: block;
+  padding: 10px 12px;
+}
+
+.checkbox.isChecked {
+  border: var(--border-purple-700);
+}
+
+.input {
+  display: none;
+}
