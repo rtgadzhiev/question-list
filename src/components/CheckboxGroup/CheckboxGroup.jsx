@@ -7,7 +7,7 @@ function CheckboxGroup({
   options,
   isLoading = false,
   onChange,
-  questionsFilters,
+  filter,
   isShowAllButton = false,
   onClick,
   isOpen,
@@ -26,7 +26,7 @@ function CheckboxGroup({
               label={option.title}
               id={option.id}
               onChange={() => onChange(option.id)}
-              checked={questionsFilters?.specializationId === option.id}
+              checked={filter === option.id}
             />
           ))
         )}

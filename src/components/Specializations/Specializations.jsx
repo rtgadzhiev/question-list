@@ -42,8 +42,7 @@ function Specializations({ questionsFilters, changeQuestionsFilters }) {
         options={specializations}
         isLoading={isLoading}
         onChange={changeSpecialization}
-        questionsFilters={questionsFilters}
-        changeQuestionsFilters={changeQuestionsFilters}
+        filter={questionsFilters?.specializationId}
         isShowAllButton={true}
         onClick={toggleAllSpecializations}
         isOpen={isOpen}
