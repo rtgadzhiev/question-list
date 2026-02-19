@@ -5,6 +5,7 @@ import useFilters from '../../helpers/hooks/useFilters';
 import { useState } from 'react';
 
 function Specializations({ questionsFilters, changeQuestionsFilters }) {
+  // TODO: Вынести в отдельный хук useOptions
   const [isOpen, setIsOpen] = useState(false);
 
   const [filters, changeFilters] = useFilters({
