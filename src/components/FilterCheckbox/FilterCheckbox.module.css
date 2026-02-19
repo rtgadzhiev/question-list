@@ -1,8 +1,12 @@
 .checkbox {
   display: inline-block;
-
   border: var(--border-gray-200);
   border-radius: var(--border-radius-s);
+}
+
+.checkbox:hover {
+  color: var(--color-white);
+  background-color: var(--color-purple-700);
 }
 
 .label {

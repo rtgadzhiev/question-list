@@ -1,7 +1,6 @@
 import Card from '../Card/Card';
 import Pagination from '../Pagination/Pagination';
 import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
-import Skeleton from '../Skeleton/Skeleton';
 import styles from './QuestionsCard.module.css';
 
 function QuestionsCard({
@@ -15,6 +14,7 @@ function QuestionsCard({
   handlePageClick,
 }) {
   return (
+    // TODO: Сделать так, чтобы в h1 появлялась специализация
     <Card>
       <div className={styles.questionsContainer}>
         <h1 className={styles.questionsTitle}>Вопросы</h1>

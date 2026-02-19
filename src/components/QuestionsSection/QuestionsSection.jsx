@@ -1,9 +1,8 @@
-import { getPublicQuestions, getSpecializations } from '../../api/apiQuestions';
-
 import Container from '../../layouts/Container/Container';
 import { LIMIT } from '../../constants/constants';
 import QuestionsCard from '../QuestionsCard/QuestionsCard';
 import QuestionsFilters from '../QuestionsFilters/QuestionsFilters';
+import { getPublicQuestions } from '../../api/apiQuestions';
 import styles from './QuestionsSection.module.css';
 import useFetch from '../../helpers/hooks/useFetch';
 import useFilters from '../../helpers/hooks/useFilters';
@@ -13,7 +12,7 @@ function QuestionsSection() {
   const [questionsFilters, changeQuestionsFilters] = useFilters({
     page: 1,
     limit: LIMIT,
-    specializationId: null,
+    specializationId: 11,
   });
   const [questions, isLoading] = useFetch(getPublicQuestions, questionsFilters);
 
