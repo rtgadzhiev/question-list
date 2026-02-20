@@ -14,6 +14,7 @@ function Specializations({ questionsFilters, changeQuestionsFilters }) {
     }
 
     changeQuestionsFilters('page', 1);
+    changeQuestionsFilters('skills', []);
   };
 
   const toggleAllSpecializations = () => {

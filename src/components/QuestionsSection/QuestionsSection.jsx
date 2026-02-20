@@ -17,6 +17,7 @@ function QuestionsSection() {
   });
   const [questions, isLoading] = useFetch(getPublicQuestions, questionsFilters);
 
+  // TODO: Вынести логику пагинации в пагинацию
   const { totalPages, paginationRange } = usePagination(
     questionsFilters?.page,
     questions?.total,

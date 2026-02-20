@@ -4,10 +4,13 @@ import { useEffect } from 'react';
 import useOptions from '../../helpers/hooks/useOptions';
 
 function Skills({ questionsFilters, changeQuestionsFilters }) {
+  // TODO: Исправить двойной запрос при первой загрузке
+
   const { options, isLoading, filters, changeFilters, isOpen, setIsOpen } =
     useOptions(getSkills, {
       page: 1,
       limit: 8,
+      specializations: questionsFilters?.specializationId,
     });
 
   useEffect(() => {
