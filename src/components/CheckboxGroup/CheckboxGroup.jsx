@@ -7,7 +7,7 @@ function CheckboxGroup({
   options,
   isLoading = false,
   onChange,
-  filter,
+  isChecked,
   isShowAllButton = false,
   onClick,
   isOpen,
@@ -26,7 +26,8 @@ function CheckboxGroup({
               label={option.title}
               id={option.id}
               onChange={() => onChange(option.id)}
-              checked={filter === option.id}
+              checked={isChecked ? isChecked(option.id) : false}
+              // imageSrc={option?.imageSrc}
             />
           ))
         )}

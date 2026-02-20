@@ -5,3 +5,10 @@
   .filters {
   }
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-self: flex-start;
+}

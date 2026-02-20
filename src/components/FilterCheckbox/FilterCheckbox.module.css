@@ -10,8 +10,15 @@
 }
 
 .label {
-  display: block;
-  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 9px 12px;
+}
+
+.label.isImage {
+  padding-block: 6px;
 }
 
 .checkbox.isChecked {

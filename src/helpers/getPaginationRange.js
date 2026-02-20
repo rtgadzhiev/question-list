@@ -2,6 +2,11 @@ export default function getPaginationRange(currentPage, totalPages) {
   const getRangeLength = (currentPage, totalPages) => {
     let rangeLength;
 
+    if (totalPages <= 4) {
+      rangeLength = totalPages;
+      return rangeLength;
+    }
+
     if (currentPage <= 4 || currentPage >= totalPages - 2) {
       rangeLength = 8;
     } else {
@@ -14,11 +19,15 @@ export default function getPaginationRange(currentPage, totalPages) {
   const getPaginationType = (currentPage, totalPages) => {
     let paginationType;
 
+    const isPaginationShort = totalPages <= 4;
+
     const isPaginationStart = currentPage <= 4;
     const isPaginationMiddle = currentPage > 4 && currentPage <= totalPages - 3;
     const isPaginationEnd = currentPage > totalPages - 3;
 
-    if (isPaginationStart) {
+    if (isPaginationStart && isPaginationShort) {
+      paginationType = 'short';
+    } else if (isPaginationStart) {
       paginationType = 'start';
     } else if (isPaginationMiddle) {
       paginationType = 'middle';
@@ -31,7 +40,7 @@ export default function getPaginationRange(currentPage, totalPages) {
 
   const getFirstPage = (currentPage, totalPages, paginationType) => {
     let firstPage;
-    if (paginationType === 'start') {
+    if (paginationType === 'short' || paginationType === 'start') {
       firstPage = 1;
     } else if (paginationType === 'middle') {
       firstPage = currentPage - 3;
@@ -47,7 +56,12 @@ export default function getPaginationRange(currentPage, totalPages) {
   const paginationType = getPaginationType(currentPage, totalPages);
   let page = getFirstPage(currentPage, totalPages, paginationType);
 
-  if (paginationType === 'start') {
+  if (paginationType === 'short') {
+    for (let i = 0; i < rangeLength; i++) {
+      range.push(page);
+      page += 1;
+    }
+  } else if (paginationType === 'start') {
     for (let i = 0; i < rangeLength; i++) {
       if (i === rangeLength - 2) {
         range.push(null);

@@ -1,9 +1,9 @@
 export async function getPublicQuestions(filters) {
-  const { page, limit, specializationId } = filters;
+  const { page, limit, specializationId, skills } = filters;
 
   try {
     const response = await fetch(
-      `https://api.yeatwork.ru/questions/public-questions?page=${page}&limit=${limit}${specializationId ? `&specializationId=${specializationId}` : ''}`,
+      `https://api.yeatwork.ru/questions/public-questions?page=${page}&limit=${limit}${specializationId ? `&specializationId=${specializationId}` : ''}${skills.length ? `&skills=${skills}` : ''}`,
       {
         headers: {
           accept: 'application/json',

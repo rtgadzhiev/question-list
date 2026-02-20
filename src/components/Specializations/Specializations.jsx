@@ -1,9 +1,6 @@
 import CheckboxGroup from '../CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
-import useFetch from '../../helpers/hooks/useFetch';
-import useFilters from '../../helpers/hooks/useFilters';
 import useOptions from '../../helpers/hooks/useOptions';
-import { useState } from 'react';
 
 function Specializations({ questionsFilters, changeQuestionsFilters }) {
   const { options, isLoading, filters, changeFilters, isOpen, setIsOpen } =
@@ -29,19 +26,21 @@ function Specializations({ questionsFilters, changeQuestionsFilters }) {
     }
   };
 
+  const isChecked = (specializationId) => {
+    return questionsFilters?.specializationId === specializationId;
+  };
+
   return (
-    <>
-      <CheckboxGroup
-        legend="Специализация"
-        options={options}
-        isLoading={isLoading}
-        onChange={changeSpecialization}
-        filter={questionsFilters?.specializationId}
-        isShowAllButton={true}
-        onClick={toggleAllSpecializations}
-        isOpen={isOpen}
-      />
-    </>
+    <CheckboxGroup
+      legend="Специализация"
+      options={options}
+      isLoading={isLoading}
+      onChange={changeSpecialization}
+      isChecked={isChecked}
+      isShowAllButton={true}
+      onClick={toggleAllSpecializations}
+      isOpen={isOpen}
+    />
   );
 }
 

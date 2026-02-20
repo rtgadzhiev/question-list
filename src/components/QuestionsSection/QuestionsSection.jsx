@@ -13,6 +13,7 @@ function QuestionsSection() {
     page: 1,
     limit: LIMIT,
     specializationId: 11,
+    skills: [],
   });
   const [questions, isLoading] = useFetch(getPublicQuestions, questionsFilters);
 
