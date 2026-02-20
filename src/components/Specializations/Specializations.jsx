@@ -2,18 +2,12 @@ import CheckboxGroup from '../CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
 import useFilters from '../../helpers/hooks/useFilters';
+import useOptions from '../../helpers/hooks/useOptions';
 import { useState } from 'react';
 
 function Specializations({ questionsFilters, changeQuestionsFilters }) {
-  // TODO: Вынести в отдельный хук useOptions
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [filters, changeFilters] = useFilters({
-    page: 1,
-    limit: 5,
-  });
-
-  const [specializations, isLoading] = useFetch(getSpecializations, filters);
+  const { options, isLoading, filters, changeFilters, isOpen, setIsOpen } =
+    useOptions(getSpecializations, { page: 1, limit: 5 });
 
   const changeSpecialization = (specializationId) => {
     if (questionsFilters?.specializationId === specializationId) {
@@ -39,7 +33,7 @@ function Specializations({ questionsFilters, changeQuestionsFilters }) {
     <>
       <CheckboxGroup
         legend="Специализация"
-        options={specializations}
+        options={options}
         isLoading={isLoading}
         onChange={changeSpecialization}
         filter={questionsFilters?.specializationId}

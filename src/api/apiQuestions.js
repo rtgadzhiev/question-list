@@ -35,3 +35,22 @@ export async function getSpecializations(filters) {
     console.error(error);
   }
 }
+
+export async function getSkills(filters) {
+  const { page, limit, specializations } = filters;
+
+  try {
+    const response = await fetch(
+      `https://api.yeatwork.ru/skills?page=${page}&limit=${limit}&specializations=${specializations}`,
+      {
+        headers: {
+          accept: 'application/json',
+        },
+      },
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
