@@ -41,7 +41,7 @@ export async function getSkills(filters) {
 
   try {
     const response = await fetch(
-      `https://api.yeatwork.ru/skills?page=${page}&limit=${limit}&specializations=${specializations}`,
+      `https://api.yeatwork.ru/skills?page=${page}&limit=${limit}${specializations ? `&specializations=${specializations}` : ''}`,
       {
         headers: {
           accept: 'application/json',

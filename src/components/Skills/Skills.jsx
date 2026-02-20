@@ -1,5 +1,6 @@
 import CheckboxGroup from '../CheckboxGroup/CheckboxGroup';
 import { getSkills } from '../../api/apiQuestions';
+import { useEffect } from 'react';
 import useOptions from '../../helpers/hooks/useOptions';
 
 function Skills({ questionsFilters, changeQuestionsFilters }) {
@@ -7,8 +8,11 @@ function Skills({ questionsFilters, changeQuestionsFilters }) {
     useOptions(getSkills, {
       page: 1,
       limit: 8,
-      specializations: questionsFilters?.specializationId,
     });
+
+  useEffect(() => {
+    changeFilters('specializations', questionsFilters?.specializationId);
+  }, [questionsFilters?.specializationId]);
 
   const changeSkills = (skillId) => {
     let newQuestionFilters = questionsFilters?.skills;
