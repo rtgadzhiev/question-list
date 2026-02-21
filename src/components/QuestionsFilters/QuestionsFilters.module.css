@@ -1,8 +1,12 @@
 .filters {
+  padding: 24px;
 }
 
 @media (width <= 768px) {
   .filters {
+    padding-top: 44px;
+    padding-inline: 16px;
+    padding-bottom: 16px;
   }
 }
 
