@@ -1,4 +1,4 @@
-import Card from '../Card/Card';
+import Card from '../ui/Card/Card';
 import Pagination from '../Pagination/Pagination';
 import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
 import styles from './Questions.module.css';

@@ -1,6 +1,6 @@
 import { LIMIT } from '../../constants/constants';
 import QuestionsAccordionItem from '../QuestionsAccordionItem/QuestionsAccordionItem';
-import Skeleton from '../Skeleton/Skeleton';
+import Skeleton from '../ui/Skeleton/Skeleton';
 import styles from './QuestionsAccordion.module.css';
 import useAccordion from '../../helpers/hooks/useAccordion';
 import useQuestions from '../../helpers/hooks/useQuestions';

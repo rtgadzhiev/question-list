@@ -1,6 +1,6 @@
 import Container from '../Container/Container';
-import HeaderActions from '../../components/HeaderActions/HeaderActions';
-import HeaderNavigation from '../../components/HeaderNavigation/HeaderNavigation';
+import HeaderActions from '../../HeaderActions/HeaderActions';
+import HeaderNavigation from '../../HeaderNavigation/HeaderNavigation';
 import styles from './Header.module.css';
 
 function Header() {

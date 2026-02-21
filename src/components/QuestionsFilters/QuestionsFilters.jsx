@@ -1,4 +1,4 @@
-import Card from '../Card/Card';
+import Card from '../ui/Card/Card';
 import Skills from '../Skills/Skills';
 import Specializations from '../Specializations/Specializations';
 import styles from './QuestionsFilters.module.css';

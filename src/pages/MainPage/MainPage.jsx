@@ -1,5 +1,4 @@
-import Layout from '../../layouts/Layout/Layout';
-import styles from './MainPage.module.css';
+import Layout from '../../components/layout/Layout/Layout';
 
 function MainPage() {
   return (

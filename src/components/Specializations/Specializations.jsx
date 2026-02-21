@@ -1,4 +1,4 @@
-import CheckboxGroup from '../CheckboxGroup/CheckboxGroup';
+import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
 import useOptions from '../../helpers/hooks/useOptions';
 

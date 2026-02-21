@@ -1,5 +1,5 @@
-import Dropdown from '../Dropdown/Dropdown';
-import Link from '../Link/Link';
+import Dropdown from '../ui/Dropdown/Dropdown';
+import Link from '../ui/Link/Link';
 import icon from '../../assets/images/icons/dropdown-dots-icon.svg';
 import styles from './QuestionDropdown.module.css';
 import useDropdown from '../../helpers/hooks/useDropdown';

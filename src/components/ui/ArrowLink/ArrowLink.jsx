@@ -1,5 +1,5 @@
 import Link from '../Link/Link';
-import arrow from '../../assets/images/icons/link-arrow-icon.svg';
+import arrow from '../../../assets/images/icons/link-arrow-icon.svg';
 import clsx from 'clsx';
 import styles from './ArrowLink.module.css';
 

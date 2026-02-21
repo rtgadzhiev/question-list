@@ -1,4 +1,4 @@
-import QuestionsSection from '../../components/QuestionsSection/QuestionsSection';
+import QuestionsSection from '../../QuestionsSection/QuestionsSection';
 import styles from './MainContent.module.css';
 
 function MainContent() {

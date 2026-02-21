@@ -1,4 +1,4 @@
-import Container from '../../layouts/Container/Container';
+import Container from '../layout/Container/Container';
 import Questions from '../Questions/Questions';
 import QuestionsFilters from '../QuestionsFilters/QuestionsFilters';
 import { QuestionsProvider } from '../../context/QuestionsContext';

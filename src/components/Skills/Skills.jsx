@@ -1,4 +1,4 @@
-import CheckboxGroup from '../CheckboxGroup/CheckboxGroup';
+import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSkills } from '../../api/apiQuestions';
 import { useEffect } from 'react';
 import useOptions from '../../helpers/hooks/useOptions';

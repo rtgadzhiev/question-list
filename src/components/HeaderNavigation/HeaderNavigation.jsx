@@ -1,5 +1,5 @@
 import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
-import Logo from '../Logo/Logo';
+import Logo from '../ui/Logo/Logo';
 import styles from './HeaderNavigation.module.css';
 
 function HeaderNavigation() {

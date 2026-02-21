@@ -1,4 +1,4 @@
-import Link from '../Link/Link';
+import Link from '../ui/Link/Link';
 import styles from './Menu.module.css';
 
 const menuItems = [

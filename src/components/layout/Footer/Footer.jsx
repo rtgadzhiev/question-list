@@ -1,7 +1,7 @@
 import Container from '../Container/Container';
-import Copyright from '../../components/Copyright/Copyright';
-import Logo from '../../components/Logo/Logo';
-import Socials from '../../components/Socials/Socials';
+import Copyright from '../../ui/Copyright/Copyright';
+import Logo from '../../ui/Logo/Logo';
+import Socials from '../../Socials/Socials';
 import styles from './Footer.module.css';
 
 function Footer() {
