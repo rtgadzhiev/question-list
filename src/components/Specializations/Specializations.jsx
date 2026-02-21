@@ -1,10 +1,27 @@
+import { useMemo, useState } from 'react';
+
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
-import useOptions from '../../helpers/hooks/useOptions';
+import useFetch from '../../helpers/hooks/useFetch';
+import useQuestions from '../../helpers/hooks/useQuestions';
+import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
-function Specializations({ questionsFilters, changeQuestionsFilters }) {
-  const { options, isLoading, filters, changeFilters, isOpen, setIsOpen } =
-    useOptions(getSpecializations, { page: 1, limit: 5 });
+function Specializations() {
+  const { questionsFilters } = useQuestions();
+  const { changeQuestionsFilters } = useQuestionsFilters();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [limit, setLimit] = useState(5);
+
+  const filters = useMemo(
+    () => ({
+      page: 1,
+      limit: limit,
+    }),
+    [limit],
+  );
+
+  const [options, isLoading] = useFetch(getSpecializations, filters);
 
   const changeSpecialization = (specializationId) => {
     if (questionsFilters?.specializationId === specializationId) {
@@ -18,11 +35,11 @@ function Specializations({ questionsFilters, changeQuestionsFilters }) {
   };
 
   const toggleAllSpecializations = () => {
-    if (filters.limit === 5) {
-      changeFilters('limit', 26);
+    if (limit === 5) {
+      setLimit(26);
       setIsOpen(true);
     } else {
-      changeFilters('limit', 5);
+      setLimit(5);
       setIsOpen(false);
     }
   };

@@ -1,21 +1,28 @@
+import { useMemo, useState } from 'react';
+
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSkills } from '../../api/apiQuestions';
-import { useEffect } from 'react';
-import useOptions from '../../helpers/hooks/useOptions';
+import useFetch from '../../helpers/hooks/useFetch';
+import useQuestions from '../../helpers/hooks/useQuestions';
+import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
-function Skills({ questionsFilters, changeQuestionsFilters }) {
-  // TODO: Исправить двойной запрос при первой загрузке
+function Skills() {
+  const { questionsFilters } = useQuestions();
+  const { changeQuestionsFilters } = useQuestionsFilters();
 
-  const { options, isLoading, filters, changeFilters, isOpen, setIsOpen } =
-    useOptions(getSkills, {
+  const [isOpen, setIsOpen] = useState(false);
+  const [limit, setLimit] = useState(8);
+
+  const filters = useMemo(
+    () => ({
       page: 1,
-      limit: 8,
+      limit,
       specializations: questionsFilters?.specializationId,
-    });
+    }),
+    [limit, questionsFilters?.specializationId],
+  );
 
-  useEffect(() => {
-    changeFilters('specializations', questionsFilters?.specializationId);
-  }, [questionsFilters?.specializationId]);
+  const [options, isLoading] = useFetch(getSkills, filters);
 
   const changeSkills = (skillId) => {
     let newQuestionFilters = questionsFilters?.skills;
@@ -31,18 +38,18 @@ function Skills({ questionsFilters, changeQuestionsFilters }) {
     changeQuestionsFilters('page', 1);
   };
 
-  const toggleAllSkills = () => {
-    if (filters.limit === 8) {
-      changeFilters('limit', 16);
-      setIsOpen(true);
-    } else {
-      changeFilters('limit', 8);
-      setIsOpen(false);
-    }
-  };
-
   const isChecked = (skillId) => {
     return questionsFilters?.skills.some((skill) => skill === skillId);
+  };
+
+  const toggleAllSkills = () => {
+    if (limit === 8) {
+      setLimit(16);
+      setIsOpen(true);
+    } else {
+      setLimit(8);
+      setIsOpen(false);
+    }
   };
 
   return (
