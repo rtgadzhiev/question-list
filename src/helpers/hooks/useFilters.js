@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function useFilters(initialFilters) {
   const [filters, setFilters] = useState(initialFilters);
@@ -7,11 +7,11 @@ function useFilters(initialFilters) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [filters]);
 
-  const changeFilters = (key, value) => {
+  const changeFilters = useCallback((key, value) => {
     setFilters((prev) => {
       return { ...prev, [key]: value };
     });
-  };
+  }, []);
 
   return [filters, changeFilters];
 }

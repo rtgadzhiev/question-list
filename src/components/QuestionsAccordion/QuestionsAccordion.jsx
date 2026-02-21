@@ -3,14 +3,16 @@ import QuestionsAccordionItem from '../QuestionsAccordionItem/QuestionsAccordion
 import Skeleton from '../Skeleton/Skeleton';
 import styles from './QuestionsAccordion.module.css';
 import useAccordion from '../../helpers/hooks/useAccordion';
+import useQuestions from '../../helpers/hooks/useQuestions';
 
-function QuestionsAccordion({ questions, isLoading }) {
+function QuestionsAccordion() {
+  const { questions, isLoading } = useQuestions();
   const { isOpen, toggle } = useAccordion();
 
   return (
     <ul className={styles.questionsAccordion}>
       {!isLoading ? (
-        questions?.map((question) => (
+        questions?.data.map((question) => (
           <QuestionsAccordionItem
             key={question.id}
             question={question}

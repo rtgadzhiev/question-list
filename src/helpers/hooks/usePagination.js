@@ -19,7 +19,7 @@ function usePagination(currentPage, totalQuestions = 1, limit = LIMIT) {
     return getPaginationRange(currentPage, totalPages);
   }, [currentPage, totalPages]);
 
-  return { totalPages, paginationRange };
+  return { currentPage, totalPages, paginationRange };
 }
 
 export default usePagination;

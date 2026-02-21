@@ -3,15 +3,34 @@ import elipsis from '../../assets/images/icons/pagination/pagination-ellipsis.sv
 import leftArrow from '../../assets/images/icons/pagination/pagination-arrow-left.svg';
 import rightArrow from '../../assets/images/icons/pagination/pagination-arrow-right.svg';
 import styles from './Pagination.module.css';
+import usePagination from '../../helpers/hooks/usePagination';
+import useQuestions from '../../helpers/hooks/useQuestions';
+import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
-function Pagination({
-  currentPage,
-  totalPages,
-  paginationRange,
-  handleNextPage,
-  handlePreviousPage,
-  handlePageClick,
-}) {
+function Pagination() {
+  const { questions, questionsFilters } = useQuestions();
+  const { changeQuestionsFilters } = useQuestionsFilters();
+
+  const { currentPage, totalPages, paginationRange } = usePagination(
+    questionsFilters?.page,
+    questions?.total,
+    questionsFilters?.limit,
+  );
+
+  const handleNextPage = () => {
+    if (questionsFilters.page < totalPages) {
+      changeQuestionsFilters('page', questionsFilters.page + 1);
+    }
+  };
+  const handlePreviousPage = () => {
+    if (questionsFilters.page > 1) {
+      changeQuestionsFilters('page', questionsFilters.page - 1);
+    }
+  };
+  const handlePageClick = (pageNumber) => {
+    changeQuestionsFilters('page', pageNumber);
+  };
+
   return (
     <div className={styles.pagination}>
       <button
