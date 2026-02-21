@@ -15,11 +15,14 @@ export function QuestionsProvider({ children }) {
     specializationId: 11,
     skills: [],
   });
-  const [questions, isLoading] = useFetch(getPublicQuestions, questionsFilters);
+  const [questions, isLoading, error] = useFetch(
+    getPublicQuestions,
+    questionsFilters,
+  );
 
   const value = useMemo(
-    () => ({ questions, questionsFilters, isLoading }),
-    [questions, questionsFilters, isLoading],
+    () => ({ questions, questionsFilters, isLoading, error }),
+    [questions, questionsFilters, isLoading, error],
   );
 
   const actions = useMemo(

@@ -10,6 +10,11 @@ export async function getPublicQuestions(filters) {
         },
       },
     );
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
@@ -29,6 +34,11 @@ export async function getSpecializations(filters) {
         },
       },
     );
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
@@ -48,6 +58,11 @@ export async function getSkills(filters) {
         },
       },
     );
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {

@@ -6,12 +6,16 @@ import useAccordion from '../../helpers/hooks/useAccordion';
 import useQuestions from '../../helpers/hooks/useQuestions';
 
 function QuestionsAccordion() {
-  const { questions, isLoading } = useQuestions();
+  const { questions, isLoading, error } = useQuestions();
   const { isOpen, toggle } = useAccordion();
 
   return (
     <ul className={styles.questionsAccordion}>
-      {!isLoading ? (
+      {isLoading && (
+        <Skeleton count={LIMIT} className={styles.questionSkeleton} />
+      )}
+      {!isLoading &&
+        !error &&
         questions?.data.map((question) => (
           <QuestionsAccordionItem
             key={question.id}
@@ -20,10 +24,9 @@ function QuestionsAccordion() {
             onToggle={toggle}
             questionId={question.id}
           />
-        ))
-      ) : (
-        <Skeleton count={LIMIT} className={styles.questionSkeleton} />
-      )}
+        ))}
+      {!questions?.data.length && 'Вопросы не найдены'}
+      {error && 'Ошибка сервера'}
     </ul>
   );
 }
