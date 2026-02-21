@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react';
-
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSkills } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
+import { useMemo } from 'react';
+import useOptions from '../../helpers/hooks/useOptions';
 import useQuestions from '../../helpers/hooks/useQuestions';
 import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
@@ -10,9 +10,7 @@ function Skills() {
   const { questionsFilters } = useQuestions();
   const { changeQuestionsFilters } = useQuestionsFilters();
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [limit, setLimit] = useState(8);
-
+  const { isOpen, setIsOpen, limit, setLimit } = useOptions(8);
   const filters = useMemo(
     () => ({
       page: 1,
@@ -21,7 +19,6 @@ function Skills() {
     }),
     [limit, questionsFilters?.specializationId],
   );
-
   const [options, isLoading] = useFetch(getSkills, filters);
 
   const changeSkills = (skillId) => {

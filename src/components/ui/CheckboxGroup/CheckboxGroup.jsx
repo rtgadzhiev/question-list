@@ -11,13 +11,14 @@ function CheckboxGroup({
   isShowAllButton = false,
   onClick,
   isOpen,
+  skeletonCount = 3,
 }) {
   return (
     <fieldset className={styles.fieldset}>
       <legend className={styles.legend}>{legend}</legend>
       <div className={styles.wrapper}>
         {isLoading ? (
-          <Skeleton className={styles.skeleton} count={5} />
+          <Skeleton className={styles.skeleton} count={skeletonCount} />
         ) : (
           options?.data.map((option) => (
             <FilterCheckbox

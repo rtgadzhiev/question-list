@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
+import useOptions from '../../helpers/hooks/useOptions';
 import useQuestions from '../../helpers/hooks/useQuestions';
 import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
@@ -10,8 +11,7 @@ function Specializations() {
   const { questionsFilters } = useQuestions();
   const { changeQuestionsFilters } = useQuestionsFilters();
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [limit, setLimit] = useState(5);
+  const { isOpen, setIsOpen, limit, setLimit } = useOptions(5);
 
   const filters = useMemo(
     () => ({

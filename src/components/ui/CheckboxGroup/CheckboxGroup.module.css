@@ -29,6 +29,9 @@
 }
 
 .skeleton {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
   width: 100%;
   height: 44px;
   border-radius: var(--border-radius-s);
