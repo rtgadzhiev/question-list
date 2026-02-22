@@ -1,6 +1,6 @@
 export async function getPublicQuestions(filters) {
   const { page, limit, specializationId, skills, titleOrDescription } = filters;
-
+  // Добавить HTMLSearchParams для skills
   try {
     const response = await fetch(
       `https://api.yeatwork.ru/questions/public-questions?page=${page}&limit=${limit}${specializationId ? `&specializationId=${specializationId}` : ''}${skills.length ? `&skills=${skills}` : ''}${titleOrDescription ? `&titleOrDescription=${titleOrDescription}` : ''}`,
