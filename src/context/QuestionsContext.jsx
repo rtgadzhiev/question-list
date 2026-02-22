@@ -14,6 +14,7 @@ export function QuestionsProvider({ children }) {
     limit: LIMIT,
     specializationId: 11,
     skills: [],
+    titleOrDescription: '',
   });
   const [questions, isLoading, error] = useFetch(
     getPublicQuestions,

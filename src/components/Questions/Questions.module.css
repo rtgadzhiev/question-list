@@ -3,30 +3,6 @@
   flex-direction: column;
 }
 
-.questionsTitle {
-  padding-top: 1px;
-  padding-bottom: 17px;
-  font-size: 24px;
-  line-height: 1.2;
-  font-weight: 500;
-  border-bottom: var(--border-gray-50);
-}
-
 .questions {
   padding: 24px 24px 40px 24px;
-}
-
-@media (width < 1024px) {
-  .questionsTitle {
-    padding-top: 3px;
-    padding-bottom: 20px;
-  }
-}
-
-@media (width < 768px) {
-  .questionsTitle {
-    padding-top: 0;
-    padding-bottom: 8px;
-    font-size: 20px;
-  }
 }

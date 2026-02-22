@@ -1,14 +1,15 @@
 import Card from '../ui/Card/Card';
 import Pagination from '../Pagination/Pagination';
 import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
+import QuestionsTitle from '../QuestionsTitle/QuestionsTitle';
 import styles from './Questions.module.css';
 
 function Questions() {
   return (
     // TODO: Сделать так, чтобы в h1 появлялась специализация
-    <Card>
+    <Card isShadow={true}>
       <div className={styles.questionsContainer}>
-        <h1 className={styles.questionsTitle}>Вопросы</h1>
+        <QuestionsTitle />
         <QuestionsAccordion />
         <Pagination />
       </div>
