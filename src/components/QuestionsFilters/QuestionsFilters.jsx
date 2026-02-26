@@ -7,7 +7,7 @@ import styles from './QuestionsFilters.module.css';
 function QuestionsFilters() {
   return (
     <Card className={styles.filters}>
-      <form className={styles.form}>
+      <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
         <Search />
         <Specializations />
         <Skills />

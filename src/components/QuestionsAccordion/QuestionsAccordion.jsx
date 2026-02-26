@@ -26,7 +26,7 @@ function QuestionsAccordion() {
           />
         ))}
       {!questions?.data.length && 'Вопросы не найдены'}
-      {error && 'Ошибка сервера'}
+      {!isLoading && error && 'Ошибка сервера'}
     </ul>
   );
 }
