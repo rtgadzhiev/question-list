@@ -6,7 +6,6 @@ import styles from './Questions.module.css';
 
 function Questions() {
   return (
-    // TODO: Сделать так, чтобы в h1 появлялась специализация
     <Card isShadow={true}>
       <div className={styles.questionsContainer}>
         <QuestionsTitle />

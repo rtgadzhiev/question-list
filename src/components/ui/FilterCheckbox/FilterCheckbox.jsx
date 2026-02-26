@@ -8,15 +8,11 @@ function FilterCheckbox({ className, label, id, checked, onChange, imageSrc }) {
         [styles.isChecked]: checked,
       })}
     >
-      <label
-        className={clsx(styles.label, { [styles.isImage]: imageSrc })}
-        htmlFor={id}
-      >
+      <label className={clsx(styles.label, { [styles.isImage]: imageSrc })}>
         <input
           className={styles.input}
           type="checkbox"
           checked={checked}
-          id={id}
           onChange={(e) => onChange(e.target.checked)}
         />
         {imageSrc && <img src={imageSrc} alt="" width="30" height="30" />}

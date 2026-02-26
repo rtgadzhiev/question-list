@@ -22,16 +22,13 @@ function Skills() {
   const [options, isLoading] = useFetch(getSkills, filters);
 
   const changeSkills = (skillId) => {
-    let newQuestionFilters = questionsFilters?.skills;
+    const currentSkills = questionsFilters?.skills;
 
-    if (isChecked(skillId)) {
-      newQuestionFilters = newQuestionFilters.filter((id) => id !== skillId);
-      changeQuestionsFilters('skills', newQuestionFilters);
-    } else {
-      newQuestionFilters.push(skillId);
-      changeQuestionsFilters('skills', newQuestionFilters);
-    }
+    const newSkills = isChecked(skillId)
+      ? currentSkills.filter((id) => id !== skillId)
+      : [...currentSkills, skillId];
 
+    changeQuestionsFilters('skills', newSkills);
     changeQuestionsFilters('page', 1);
   };
 
@@ -39,12 +36,12 @@ function Skills() {
     return questionsFilters?.skills.some((skill) => skill === skillId);
   };
 
-  const toggleAllSkills = () => {
-    if (limit === 8) {
-      setLimit(16);
+  const toggleAllSkills = (minValue = 8, maxValue = 16) => {
+    if (limit === minValue) {
+      setLimit(maxValue);
       setIsOpen(true);
     } else {
-      setLimit(8);
+      setLimit(minValue);
       setIsOpen(false);
     }
   };

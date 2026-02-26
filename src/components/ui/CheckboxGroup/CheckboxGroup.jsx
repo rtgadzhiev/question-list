@@ -25,7 +25,6 @@ function CheckboxGroup({
               className={styles.checkbox}
               key={option.id}
               label={option.title}
-              id={option.id}
               onChange={() => onChange(option.id)}
               checked={isChecked ? isChecked(option.id) : false}
               // imageSrc={option?.imageSrc}

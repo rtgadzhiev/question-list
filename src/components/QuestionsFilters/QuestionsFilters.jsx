@@ -1,4 +1,5 @@
 import Card from '../ui/Card/Card';
+import Complexity from '../Complexity/Complexity';
 import Search from '../Search/Search';
 import Skills from '../Skills/Skills';
 import Specializations from '../Specializations/Specializations';
@@ -11,6 +12,7 @@ function QuestionsFilters() {
         <Search />
         <Specializations />
         <Skills />
+        <Complexity />
       </form>
     </Card>
   );
