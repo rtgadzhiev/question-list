@@ -16,6 +16,7 @@ export function QuestionsProvider({ children }) {
     skills: [],
     titleOrDescription: '',
     complexity: [],
+    rate: [1],
   });
   const [questions, isLoading, error] = useFetch(
     getPublicQuestions,
