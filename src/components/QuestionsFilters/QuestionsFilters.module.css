@@ -1,0 +1,54 @@
+.aside {
+  position: sticky;
+  top: 20px;
+  width: 100%;
+}
+
+.filters {
+  padding: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-self: flex-start;
+}
+
+@media (width <= 1024px) {
+  .aside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 328px;
+    z-index: 800;
+    transform: translateX(100%);
+    transition-duration: var(--transition-duration);
+  }
+
+  .filters {
+    padding-top: 80px;
+    padding-inline: 16px;
+    padding-bottom: 16px;
+    border-radius: 0;
+    box-shadow: var(--box-shadow);
+  }
+
+  .aside.isOpen {
+    transform: translateX(0);
+  }
+
+  .form {
+    padding-top: 8px;
+  }
+}
+
+@media (width <= 768px) {
+  .aside {
+    max-width: 100%;
+  }
+
+  .filters {
+    padding-top: 83px;
+  }
+}

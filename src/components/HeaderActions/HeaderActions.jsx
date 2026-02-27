@@ -1,6 +1,6 @@
-import BurgerButton from '../BurgerButton/BurgerButton';
-import Button from '../Button/Button';
-import Link from '../Link/Link';
+import BurgerButton from '../ui/BurgerButton/BurgerButton';
+import Button from '../ui/Button/Button';
+import Link from '../ui/Link/Link';
 import clsx from 'clsx';
 import styles from './HeaderActions.module.css';
 import { useState } from 'react';

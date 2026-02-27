@@ -1,0 +1,27 @@
+.button {
+  display: none;
+  padding: 6px;
+  border-radius: var(--border-radius-xs);
+  border: var(--border-gray-200);
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.icon {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (width <= 1024px) {
+  .button {
+    display: block;
+  }
+}
+
+@media (width <= 768px) {
+  .button {
+    padding: 2px;
+    min-width: 30px;
+  }
+}

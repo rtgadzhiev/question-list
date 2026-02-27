@@ -20,5 +20,5 @@ export default function useFetch(fetchFunction, filters) {
     fetchData();
   }, [fetchFunction, filters]);
 
-  return { data, isLoading, error };
+  return [data, isLoading, error];
 }

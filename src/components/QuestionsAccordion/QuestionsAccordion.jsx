@@ -1,16 +1,22 @@
 import { LIMIT } from '../../constants/constants';
 import QuestionsAccordionItem from '../QuestionsAccordionItem/QuestionsAccordionItem';
-import Skeleton from '../Skeleton/Skeleton';
+import Skeleton from '../ui/Skeleton/Skeleton';
 import styles from './QuestionsAccordion.module.css';
 import useAccordion from '../../helpers/hooks/useAccordion';
+import useQuestions from '../../helpers/hooks/useQuestions';
 
-function QuestionsAccordion({ questions, isLoading }) {
+function QuestionsAccordion() {
+  const { questions, isLoading, error } = useQuestions();
   const { isOpen, toggle } = useAccordion();
 
   return (
     <ul className={styles.questionsAccordion}>
-      {!isLoading ? (
-        questions?.map((question) => (
+      {isLoading && (
+        <Skeleton count={LIMIT} className={styles.questionSkeleton} />
+      )}
+      {!isLoading &&
+        !error &&
+        questions?.data.map((question) => (
           <QuestionsAccordionItem
             key={question.id}
             question={question}
@@ -18,10 +24,9 @@ function QuestionsAccordion({ questions, isLoading }) {
             onToggle={toggle}
             questionId={question.id}
           />
-        ))
-      ) : (
-        <Skeleton count={LIMIT} className={styles.questionSkeleton} />
-      )}
+        ))}
+      {!questions?.data.length && 'Вопросы не найдены'}
+      {!isLoading && error && 'Ошибка сервера'}
     </ul>
   );
 }

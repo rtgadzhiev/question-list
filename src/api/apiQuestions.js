@@ -1,18 +1,17 @@
-export async function getPublicQuestions(filters) {
-  const { page, limit } = filters;
+import { apiRequest } from './apiRequest';
 
-  try {
-    const response = await fetch(
-      `https://api.yeatwork.ru/questions/public-questions?page=${page}&limit=${limit}`,
-      {
-        headers: {
-          accept: 'application/json',
-        },
-      },
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+export async function getPublicQuestions(filters) {
+  return apiRequest('questions/public-questions/', filters);
+}
+
+export async function getSpecializations(filters) {
+  return apiRequest('specializations', filters);
+}
+
+export async function getSkills(filters) {
+  return apiRequest('skills', filters);
+}
+
+export async function getSpecialization({ id }) {
+  return apiRequest(`specializations/${id ? id : ''}`);
 }

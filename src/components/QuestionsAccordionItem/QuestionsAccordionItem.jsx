@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 
 import AccordionBody from '../AccordionBody/AccordionBody';
 import AccordionTrigger from '../AccordionTrigger/AccordionTrigger';
-import Arrow from '../Arrow/Arrow';
-import ArrowLink from '../ArrowLink/ArrowLink';
-import Metrics from '../Metrics/Metrics';
+import Arrow from '../ui/Arrow/Arrow';
+import ArrowLink from '../ui/ArrowLink/ArrowLink';
+import Metrics from '../ui/Metrics/Metrics';
 import QuestionDropdown from '../QuestionDropdown/QuestionDropdown';
 import arrow from '../../assets/images/icons/accordion-arrow-icon.svg';
 import styles from './QuestionsAccordionItem.module.css';

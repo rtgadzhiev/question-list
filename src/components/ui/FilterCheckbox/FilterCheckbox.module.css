@@ -1,0 +1,30 @@
+.checkbox {
+  display: inline-block;
+  border: var(--border-gray-200);
+  border-radius: var(--border-radius-s);
+}
+
+.checkbox:hover {
+  color: var(--color-white);
+  background-color: var(--color-purple-700);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 9px 12px;
+}
+
+.label.isImage {
+  padding-block: 6px;
+}
+
+.checkbox.isChecked {
+  border: var(--border-purple-700);
+}
+
+.input {
+  display: none;
+}

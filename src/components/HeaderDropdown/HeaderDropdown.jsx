@@ -1,5 +1,5 @@
-import Arrow from '../Arrow/Arrow';
-import Dropdown from '../Dropdown/Dropdown';
+import Arrow from '../ui/Arrow/Arrow';
+import Dropdown from '../ui/Dropdown/Dropdown';
 import Menu from '../Menu/Menu';
 import arrow from '../../assets/images/icons/dropdown-arrow-icon.svg';
 import styles from './HeaderDropdown.module.css';
