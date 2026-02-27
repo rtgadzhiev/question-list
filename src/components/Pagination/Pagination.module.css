@@ -11,7 +11,7 @@
   transition-duration: 0s;
 }
 
-.button.isActive {
+.isActive:disabled {
   padding: 5px 6px;
   background-color: var(--color-purple-700);
   border: none;
