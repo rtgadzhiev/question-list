@@ -1,6 +1,6 @@
 import Button from '../Button/Button';
-import leftArrow from '../../../assets/images/icons/pagination/pagination-arrow-left.svg';
-import rightArrow from '../../../assets/images/icons/pagination/pagination-arrow-right.svg';
+import arrow from '../../../assets/images/icons/pagination/pagination-arrow.svg';
+import clsx from 'clsx';
 import styles from './PaginationArrow.module.css';
 
 function PaginationArrow({
@@ -18,8 +18,10 @@ function PaginationArrow({
       }
     >
       <img
-        className={styles.arrow}
-        src={direction === 'left' ? leftArrow : rightArrow}
+        className={clsx(styles.arrow, {
+          [styles.rigth]: direction === 'right',
+        })}
+        src={arrow}
         alt={direction === 'left' ? 'Назад' : 'Вперед'}
         width="28"
         height="28"

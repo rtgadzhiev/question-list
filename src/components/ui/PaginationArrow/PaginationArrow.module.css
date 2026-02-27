@@ -3,3 +3,7 @@
   border-radius: 1000px;
   border: var(--border-purple-700);
 }
+
+.arrow.rigth {
+  transform: rotate(180deg);
+}
