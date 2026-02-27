@@ -13,5 +13,5 @@ export async function getSkills(filters) {
 }
 
 export async function getSpecialization({ id }) {
-  return apiRequest(`specializations/${id}`);
+  return apiRequest(`specializations/${id ? id : ''}`);
 }
