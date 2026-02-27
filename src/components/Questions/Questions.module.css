@@ -1,10 +1,6 @@
-.container {
+.questions {
   display: flex;
   flex-direction: column;
-}
-
-.questions {
-  padding: 24px 24px 40px 24px;
 }
 
 .header {

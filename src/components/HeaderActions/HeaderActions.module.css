@@ -1,23 +1,21 @@
-.loginMenuButtons {
+.wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 26px;
-}
-
-.wrapper {
-  display: flex;
+  gap: 6px;
 }
 
 .link {
-  padding: 12px 28px;
+  padding: 12px 20px;
   width: 100%;
 }
 
 @media (width <= 768px) {
-  .loginMenuButtons {
+  .buttons {
     visibility: hidden;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     width: 100vw;
     height: 100vh;
@@ -30,7 +28,7 @@
     z-index: 900;
   }
 
-  .loginMenuButtons.isOpen {
+  .buttons.isOpen {
     visibility: visible;
     transform: translateX(0);
   }

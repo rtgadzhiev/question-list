@@ -4,19 +4,17 @@
 
 .dropdownButton {
   display: flex;
+  padding-block: 4px;
   column-gap: 6px;
-  padding: 0;
   justify-content: center;
   align-items: center;
-  border: none;
-  background-color: transparent;
 }
 
 .dropdownContent {
   min-width: 150px;
   padding: 10px;
   position: absolute;
-  top: 25px;
+  top: 38px;
   transition-duration: var(--transition-duration);
   border-bottom-left-radius: var(--border-radius-s);
   border-bottom-right-radius: var(--border-radius-s);

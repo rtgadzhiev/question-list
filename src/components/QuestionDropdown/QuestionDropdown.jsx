@@ -5,7 +5,7 @@ import styles from './QuestionDropdown.module.css';
 import useDropdown from '../../helpers/hooks/useDropdown';
 import useDropdownPosition from '../../helpers/hooks/useDropdownPosition';
 
-function QuestionDropdown() {
+function QuestionDropdown({ tabIndex }) {
   const [isOpen, toggleDropdown, dropdownRef] = useDropdown(false);
   const dropdownPosistion = useDropdownPosition(dropdownRef);
 
@@ -20,6 +20,7 @@ function QuestionDropdown() {
       }
       content={<Link>Подробнее</Link>}
       position={dropdownPosistion}
+      tabIndex={tabIndex}
     />
   );
 }

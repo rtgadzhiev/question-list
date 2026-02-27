@@ -18,11 +18,7 @@ function HeaderDropdown() {
       trigger={
         <>
           <span>Подготовка</span>
-          <Arrow
-            className={styles.headerDropdownArrow}
-            arrow={arrow}
-            isOpen={isOpen}
-          />
+          <Arrow className={styles.arrow} arrow={arrow} isOpen={isOpen} />
         </>
       }
       content={<Menu />}

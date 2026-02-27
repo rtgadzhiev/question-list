@@ -11,7 +11,7 @@ function Questions() {
 
   return (
     <section>
-      <Card className={styles.container} isShadow={true}>
+      <Card className={styles.questions} isShadow={true}>
         <header className={styles.header}>
           <QuestionsTitle />
           <FiltersButton onClick={toggleFilters} />

@@ -1,4 +1,4 @@
-.questionsSectionContainer {
+.container {
   display: grid;
   padding-top: 40px;
   padding-bottom: 130px;
@@ -9,7 +9,7 @@
 }
 
 @media (width <= 1024px) {
-  .questionsSectionContainer {
+  .container {
     padding-top: 24px;
     padding-bottom: 80px;
     grid-template-columns: minmax(0, 1fr);
@@ -17,7 +17,7 @@
 }
 
 @media (width <= 768px) {
-  .questionsSectionContainer {
+  .container {
     padding-top: 84px;
     padding-bottom: 40px;
   }

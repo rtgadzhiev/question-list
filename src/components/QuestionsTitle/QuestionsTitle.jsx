@@ -15,7 +15,7 @@ function QuestionsTitle() {
   const [data] = useFetch(getSpecialization, filters);
 
   return (
-    <h1 className={styles.questionsTitle}>
+    <h1 className={styles.title}>
       Вопросы{data?.title ? ` ${data?.title}` : ''}
     </h1>
   );

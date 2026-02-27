@@ -8,7 +8,7 @@ function Copyright({ className }) {
   return (
     <small className={clsx(styles.copyright, className)}>
       <span>© {currentYear} YeaHub</span>
-      <Link className={styles.copyrightLink}>Документы</Link>
+      <Link className={styles.link}>Документы</Link>
     </small>
   );
 }

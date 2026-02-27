@@ -8,27 +8,14 @@
 }
 
 .button {
-  padding: 0;
-  background-color: transparent;
-  border: none;
+  transition-duration: 0s;
 }
 
-.button:disabled {
-  cursor: default;
-  opacity: 0.5;
-}
-
-.button.isActive {
+.isActive:disabled {
   padding: 5px 6px;
   background-color: var(--color-purple-700);
   border: none;
   color: var(--color-white);
   border-radius: var(--border-radius-xxxs);
   opacity: 1;
-}
-
-.arrow {
-  padding: 8px 6px;
-  border-radius: 1000px;
-  border: var(--border-purple-700);
 }

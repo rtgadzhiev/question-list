@@ -17,6 +17,7 @@
 
 @media (width <= 1024px) {
   .aside {
+    visibility: hidden;
     position: absolute;
     top: 0;
     right: 0;
@@ -27,7 +28,7 @@
   }
 
   .filters {
-    padding-top: 80px;
+    padding-top: 17px;
     padding-inline: 16px;
     padding-bottom: 16px;
     border-radius: 0;
@@ -35,6 +36,7 @@
   }
 
   .aside.isOpen {
+    visibility: visible;
     transform: translateX(0);
   }
 

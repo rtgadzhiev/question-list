@@ -25,10 +25,14 @@ const QuestionsAccordionItem = memo((props) => {
       <AccordionBody isOpen={isOpen}>
         <div className={styles.bodyHeader}>
           <Metrics rate={question.rate} complexity={question.complexity} />
-          <QuestionDropdown />
+          <QuestionDropdown tabIndex={!isOpen ? '-1' : undefined} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: question.shortAnswer }}></div>
-        <ArrowLink className={styles.link} title={'Подробнее'} />
+        <ArrowLink
+          className={styles.link}
+          title={'Подробнее'}
+          tabIndex={!isOpen ? '-1' : undefined}
+        />
       </AccordionBody>
     </li>
   );

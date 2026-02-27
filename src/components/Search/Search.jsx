@@ -15,6 +15,7 @@ function Search() {
   useEffect(() => {
     if (debouncedValue !== questionsFilters?.titleOrDescription) {
       changeQuestionsFilters('titleOrDescription', debouncedValue);
+      changeQuestionsFilters('page', 1);
     }
   }, [debouncedValue]);
 

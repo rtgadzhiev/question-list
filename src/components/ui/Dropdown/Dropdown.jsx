@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import clsx from 'clsx';
 import styles from './Dropdown.module.css';
 
@@ -11,19 +12,21 @@ function Dropdown(props) {
     ref,
     isMobile = false,
     position,
+    tabIndex,
   } = props;
 
   return (
     <div className={clsx(styles.dropdown, className)}>
-      <button
+      <Button
         ref={ref}
         className={clsx(styles.dropdownButton, {
           [styles.isMobile]: isMobile,
         })}
         onClick={onToggle}
+        tabIndex={tabIndex}
       >
         {trigger}
-      </button>
+      </Button>
       <div
         className={clsx(styles.dropdownContent, {
           [styles.isOpen]: isOpen,
