@@ -30,7 +30,6 @@ function Specializations() {
       changeQuestionsFilters('specializationId', specializationId);
     }
 
-    changeQuestionsFilters('page', 1);
     changeQuestionsFilters('skills', []);
   };
 

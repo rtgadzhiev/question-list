@@ -29,7 +29,6 @@ function Skills() {
       : [...currentSkills, skillId];
 
     changeQuestionsFilters('skills', newSkills);
-    changeQuestionsFilters('page', 1);
   };
 
   const isChecked = (skillId) => {
