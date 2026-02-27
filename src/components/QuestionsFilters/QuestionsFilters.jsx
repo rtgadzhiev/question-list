@@ -19,7 +19,7 @@ function QuestionsFilters() {
     >
       <Card className={styles.filters}>
         <CloseButton onClick={toggleFilters} />
-        <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
+        <form className={styles.form}>
           <Search />
           <Specializations />
           <Skills />

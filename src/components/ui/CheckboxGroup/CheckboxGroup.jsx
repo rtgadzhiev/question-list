@@ -34,7 +34,7 @@ function CheckboxGroup({
         )}
       </div>
       {isShowAllButton && (
-        <Button className={styles.button} onClick={onClick}>
+        <Button className={styles.button} onClick={onClick} type="button">
           {isOpen ? 'Скрыть' : 'Посмотреть все'}
         </Button>
       )}
