@@ -23,11 +23,22 @@ function Search() {
     setValue(e.target.value);
   };
 
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (value !== questionsFilters?.title) {
+        changeQuestionsFilters('title', value);
+        changeQuestionsFilters('page', 1);
+      }
+    }
+  };
+
   return (
     <SearchInput
       placeholder="Введите запрос…"
       value={value}
       onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 }

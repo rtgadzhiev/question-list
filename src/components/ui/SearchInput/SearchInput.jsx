@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import styles from './SearchInput.module.css';
 
-function SearchInput({ className, placeholder, value, onChange }) {
+function SearchInput({ className, placeholder, value, onChange, onKeyDown }) {
   return (
     <div className={styles.icon}>
       <input
@@ -11,6 +11,7 @@ function SearchInput({ className, placeholder, value, onChange }) {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
     </div>
   );
