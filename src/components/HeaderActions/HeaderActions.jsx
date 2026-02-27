@@ -12,9 +12,7 @@ function HeaderActions() {
 
   return (
     <>
-      <div
-        className={clsx(styles.loginMenuButtons, { [styles.isOpen]: isOpen })}
-      >
+      <div className={clsx(styles.buttons, { [styles.isOpen]: isOpen })}>
         <div className={styles.wrapper}>
           <Link className={styles.link}>Вход</Link>
           <Button>Регистрация</Button>

@@ -7,15 +7,9 @@ function BurgerButton({ onClick, isOpen }) {
       onClick={onClick}
       className={clsx(styles.burgerButton, { [styles.isOpen]: isOpen })}
     >
-      <span
-        className={clsx(styles.burgerButtonLine, { [styles.isOpen]: isOpen })}
-      ></span>
-      <span
-        className={clsx(styles.burgerButtonLine, { [styles.isOpen]: isOpen })}
-      ></span>
-      <span
-        className={clsx(styles.burgerButtonLine, { [styles.isOpen]: isOpen })}
-      ></span>
+      <span className={clsx(styles.line, { [styles.isOpen]: isOpen })}></span>
+      <span className={clsx(styles.line, { [styles.isOpen]: isOpen })}></span>
+      <span className={clsx(styles.line, { [styles.isOpen]: isOpen })}></span>
     </button>
   );
 }

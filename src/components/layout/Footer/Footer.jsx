@@ -7,19 +7,19 @@ import styles from './Footer.module.css';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <Container className={styles.footerContent}>
+      <Container className={styles.content}>
         <Logo isTextLight={true} />
-        <h3 className={styles.footerTitle}>
+        <h2 className={styles.title}>
           Выбери, каким будет IT завтра, вместе с нами
-        </h3>
-        <p className={styles.footerDescription}>
+        </h2>
+        <p className={styles.description}>
           YeaHub — это полностью открытый проект, призванный объединить и
           улучшить IT-сферу. Наш исходный код доступен для просмотра на GitHub.
           Дизайн проекта также открыт для ознакомления в Figma.
         </p>
-        <div className={styles.footerBottom}>
+        <div className={styles.bottom}>
           <Copyright />
-          <span className={styles.footerSocialsDescription}>
+          <span className={styles.socialsDescription}>
             Ищите нас и в других соцсетях @yeahub_it
           </span>
           <Socials />

@@ -1,4 +1,4 @@
-.loginMenuButtons {
+.buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
 }
 
 @media (width <= 768px) {
-  .loginMenuButtons {
+  .buttons {
     visibility: hidden;
     flex-direction: column;
     justify-content: center;
@@ -30,7 +30,7 @@
     z-index: 900;
   }
 
-  .loginMenuButtons.isOpen {
+  .buttons.isOpen {
     visibility: visible;
     transform: translateX(0);
   }

@@ -13,7 +13,7 @@
     z-index: 1000;
   }
 
-  .burgerButton .burgerButtonLine {
+  .burgerButton .line {
     position: absolute;
     content: '';
     width: 23px;
@@ -25,25 +25,25 @@
     transition: transform var(--transition-duration);
   }
 
-  .burgerButtonLine:first-child {
+  .line:first-child {
     top: auto;
     bottom: 22px;
   }
 
-  .burgerButtonLine:last-child {
+  .line:last-child {
     top: auto;
     bottom: 6px;
   }
 
-  .burgerButtonLine:nth-child(2).isOpen {
+  .line:nth-child(2).isOpen {
     display: none;
   }
 
-  .burgerButtonLine:first-child.isOpen {
+  .line:first-child.isOpen {
     transform: translate(-11px, 7px) rotate(-45deg);
   }
 
-  .burgerButtonLine:last-child.isOpen {
+  .line:last-child.isOpen {
     transform: translate(-11px, -9px) rotate(45deg);
   }
 }

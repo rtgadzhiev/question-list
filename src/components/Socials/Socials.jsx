@@ -16,12 +16,12 @@ const socials = [
 function Socials() {
   return (
     <nav>
-      <ul className={styles.socialsList}>
+      <ul className={styles.socials}>
         {socials.map((item) => (
           <li key={item.id}>
             <a href="">
               <img
-                className={styles.socialsIcon}
+                className={styles.icon}
                 src={item.icon}
                 alt={item.title}
                 width="24"

@@ -10,10 +10,8 @@ function QuestionsAccordion() {
   const { isOpen, toggle } = useAccordion();
 
   return (
-    <ul className={styles.questionsAccordion}>
-      {isLoading && (
-        <Skeleton count={LIMIT} className={styles.questionSkeleton} />
-      )}
+    <ul className={styles.accordion}>
+      {isLoading && <Skeleton count={LIMIT} className={styles.skeleton} />}
       {!isLoading &&
         !error &&
         questions?.data.map((question) => (

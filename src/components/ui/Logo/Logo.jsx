@@ -14,7 +14,7 @@ function Logo({
     <a className={clsx(styles.logo, className)} href="#">
       {isLogo && <img src={logo} alt="" width="33" height="33" />}
       <img
-        className={clsx(styles.logoText, {
+        className={clsx(styles.text, {
           [styles.hidden]: isTextHiddenOnMobile,
         })}
         src={isTextLight ? textLight : textDark}

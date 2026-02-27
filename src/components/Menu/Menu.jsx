@@ -5,7 +5,7 @@ import styles from './Menu.module.css';
 function Menu({ className }) {
   return (
     <nav className={className}>
-      <ul className={styles.menuList}>
+      <ul className={styles.menu}>
         {MENU_ITEMS.map((item) => (
           <li key={item.id}>
             <Link isActive={item.isActive}>{item.title}</Link>
