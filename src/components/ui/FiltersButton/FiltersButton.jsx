@@ -4,7 +4,7 @@ import styles from './FiltersButton.module.css';
 function FiltersButton({ onClick }) {
   return (
     <button className={styles.button} onClick={onClick}>
-      <img src={icon} alt="" width="24" height="24" />
+      <img className={styles.icon} src={icon} alt="" width="24" height="24" />
     </button>
   );
 }

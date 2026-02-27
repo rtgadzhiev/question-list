@@ -1,3 +1,9 @@
+export const MENU_ITEMS = [
+  { id: 1, title: 'База вопросов', isActive: true },
+  { id: 2, title: 'Тренажер' },
+  { id: 3, title: 'Материалы' },
+  { id: 4, title: 'Навыки (hh)' },
+];
 export const LIMIT = 10;
 export const BASE_URL = 'https://api.yeatwork.ru/';
 export const COMPLEXITY_OPTIONS = {

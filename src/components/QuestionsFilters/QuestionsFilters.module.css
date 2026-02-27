@@ -17,13 +17,17 @@
 
 @media (width <= 1024px) {
   .aside {
-    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
     max-width: 328px;
-    z-index: 1000;
+    z-index: 800;
+    transform: translateX(100%);
+    transition-duration: var(--transition-duration);
   }
 
   .filters {
-    padding-top: 17px;
+    padding-top: 80px;
     padding-inline: 16px;
     padding-bottom: 16px;
     border-radius: 0;
@@ -31,10 +35,7 @@
   }
 
   .aside.isOpen {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
+    transform: translateX(0);
   }
 
   .form {
@@ -48,6 +49,6 @@
   }
 
   .filters {
-    padding-top: 20px;
+    padding-top: 83px;
   }
 }

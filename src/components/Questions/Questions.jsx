@@ -4,14 +4,17 @@ import Pagination from '../Pagination/Pagination';
 import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
 import QuestionsTitle from '../QuestionsTitle/QuestionsTitle';
 import styles from './Questions.module.css';
+import { useUI } from '../../helpers/hooks/useUI';
 
-function Questions({ onClick }) {
+function Questions() {
+  const { toggleFilters } = useUI();
+
   return (
     <section>
       <Card className={styles.container} isShadow={true}>
         <header className={styles.header}>
           <QuestionsTitle />
-          <FiltersButton onClick={onClick} />
+          <FiltersButton onClick={toggleFilters} />
         </header>
         <QuestionsAccordion />
         <Pagination />
