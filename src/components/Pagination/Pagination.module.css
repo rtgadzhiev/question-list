@@ -15,9 +15,3 @@
   border-radius: var(--border-radius-xxxs);
   opacity: 1;
 }
-
-.arrow {
-  padding: 8px 6px;
-  border-radius: 1000px;
-  border: var(--border-purple-700);
-}

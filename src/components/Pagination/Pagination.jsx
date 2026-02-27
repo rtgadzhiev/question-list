@@ -1,8 +1,7 @@
 import Button from '../ui/Button/Button';
+import PaginationArrow from '../ui/PaginationArrow/PaginationArrow';
 import clsx from 'clsx';
 import elipsis from '../../assets/images/icons/pagination/pagination-ellipsis.svg';
-import leftArrow from '../../assets/images/icons/pagination/pagination-arrow-left.svg';
-import rightArrow from '../../assets/images/icons/pagination/pagination-arrow-right.svg';
 import styles from './Pagination.module.css';
 import usePagination from '../../helpers/hooks/usePagination';
 import useQuestions from '../../helpers/hooks/useQuestions';
@@ -34,15 +33,11 @@ function Pagination() {
 
   return (
     <div className={styles.pagination}>
-      <Button onClick={handlePreviousPage} isDisabled={currentPage === 1}>
-        <img
-          className={styles.arrow}
-          src={leftArrow}
-          alt="Назад"
-          width="28"
-          height="28"
-        />
-      </Button>
+      <PaginationArrow
+        direction="left"
+        handlePreviousPage={handlePreviousPage}
+        currentPage={currentPage}
+      />
       {paginationRange.length > 1 ? (
         paginationRange?.map((pageNumber, index) => (
           <Button
@@ -58,18 +53,15 @@ function Pagination() {
         ))
       ) : (
         <Button className={styles.isActive} isDisabled={true}>
-          {currentPage}
+          1
         </Button>
       )}
-      <Button onClick={handleNextPage} isDisabled={currentPage === totalPages}>
-        <img
-          className={styles.arrow}
-          src={rightArrow}
-          alt="Вперед"
-          width="28"
-          height="28"
-        />
-      </Button>
+      <PaginationArrow
+        direction="right"
+        handleNextPage={handleNextPage}
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
     </div>
   );
 }

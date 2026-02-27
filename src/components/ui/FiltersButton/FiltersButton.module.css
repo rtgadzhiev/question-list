@@ -7,8 +7,6 @@
 
 .icon {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
 
 @media (width <= 1024px) {
