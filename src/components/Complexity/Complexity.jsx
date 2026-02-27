@@ -43,5 +43,3 @@ function Complexity() {
 }
 
 export default Complexity;
-
-// [1, 2, 3] [1, 2, 3];

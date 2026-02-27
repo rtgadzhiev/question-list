@@ -1,17 +1,15 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useMemo } from 'react';
+
+import useToggle from '../helpers/hooks/useToggle';
 
 export const UIContext = createContext(null);
 
 export function UIProvider({ children }) {
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-
-  const toggleFilters = () => {
-    setIsFiltersOpen((prev) => !prev);
-  };
+  const [isFiltersOpen, toggleFilters] = useToggle(false);
 
   const value = useMemo(
     () => ({ isFiltersOpen, toggleFilters }),
-    [isFiltersOpen, setIsFiltersOpen],
+    [isFiltersOpen, toggleFilters],
   );
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;

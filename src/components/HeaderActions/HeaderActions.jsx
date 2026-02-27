@@ -1,15 +1,12 @@
 import BurgerButton from '../ui/BurgerButton/BurgerButton';
-import Button from '../ui/Button/Button';
 import ButtonPrimary from '../ui/ButtonPrimary/ButtonPrimary';
 import Link from '../ui/Link/Link';
 import clsx from 'clsx';
 import styles from './HeaderActions.module.css';
-import { useState } from 'react';
+import useToggle from '../../helpers/hooks/useToggle';
 
 function HeaderActions() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const [isOpen, toggleMenu] = useToggle(false);
 
   return (
     <>
