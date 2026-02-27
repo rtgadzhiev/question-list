@@ -7,7 +7,7 @@ import styles from './QuestionsSection.module.css';
 
 function QuestionsSection() {
   return (
-    <Container className={styles.questionsSectionContainer}>
+    <Container className={styles.container}>
       <QuestionsProvider>
         <UIProvider>
           <Questions />

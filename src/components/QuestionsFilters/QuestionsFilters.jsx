@@ -10,10 +10,13 @@ import styles from './QuestionsFilters.module.css';
 import { useUI } from '../../helpers/hooks/useUI';
 
 function QuestionsFilters() {
-  const { isFiltersOpen, toggleFilters } = useUI();
+  const { isFiltersOpen, toggleFilters, filtersRef } = useUI();
 
   return (
-    <aside className={clsx(styles.aside, { [styles.isOpen]: isFiltersOpen })}>
+    <aside
+      ref={filtersRef}
+      className={clsx(styles.aside, { [styles.isOpen]: isFiltersOpen })}
+    >
       <Card className={styles.filters}>
         <CloseButton onClick={toggleFilters} />
         <form onSubmit={(e) => e.preventDefault()} className={styles.form}>

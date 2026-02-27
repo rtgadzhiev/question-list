@@ -54,7 +54,7 @@ function Skills() {
       onChange={changeSkills}
       isChecked={isChecked}
       isShowAllButton={true}
-      onClick={toggleAllSkills}
+      onClick={() => toggleAllSkills()}
       isOpen={isOpen}
     />
   );

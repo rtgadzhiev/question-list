@@ -3,9 +3,9 @@ import arrow from '../../../assets/images/icons/link-arrow-icon.svg';
 import clsx from 'clsx';
 import styles from './ArrowLink.module.css';
 
-function ArrowLink({ className, title }) {
+function ArrowLink({ className, title, tabIndex }) {
   return (
-    <Link className={clsx(styles.link, className)} href="#">
+    <Link className={clsx(styles.link, className)} href="#" tabIndex={tabIndex}>
       <span>{title}</span>
       <img className={styles.arrow} src={arrow} alt="" width="24" height="24" />
     </Link>

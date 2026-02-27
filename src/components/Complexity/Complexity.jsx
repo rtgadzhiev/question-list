@@ -20,6 +20,7 @@ function Complexity() {
       : [...currentComplexity, ...complexityOption.value];
 
     changeQuestionsFilters('complexity', newComplexity);
+    changeQuestionsFilters('page', 1);
   };
 
   const isChecked = (complexityId) => {
@@ -43,5 +44,3 @@ function Complexity() {
 }
 
 export default Complexity;
-
-// [1, 2, 3] [1, 2, 3];

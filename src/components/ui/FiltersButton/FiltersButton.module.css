@@ -3,14 +3,10 @@
   padding: 6px;
   border-radius: var(--border-radius-xs);
   border: var(--border-gray-200);
-  background-color: transparent;
-  overflow: hidden;
 }
 
 .icon {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
 
 @media (width <= 1024px) {
