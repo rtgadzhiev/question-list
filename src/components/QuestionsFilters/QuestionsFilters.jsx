@@ -7,13 +7,18 @@ import Skills from '../Skills/Skills';
 import Specializations from '../Specializations/Specializations';
 import clsx from 'clsx';
 import styles from './QuestionsFilters.module.css';
+import useClickOutside from '../../helpers/hooks/useClickOutside';
 import { useUI } from '../../helpers/hooks/useUI';
 
 function QuestionsFilters() {
   const { isFiltersOpen, toggleFilters } = useUI();
+  const asideRef = useClickOutside(toggleFilters);
 
   return (
-    <aside className={clsx(styles.aside, { [styles.isOpen]: isFiltersOpen })}>
+    <aside
+      ref={asideRef}
+      className={clsx(styles.aside, { [styles.isOpen]: isFiltersOpen })}
+    >
       <Card className={styles.filters}>
         <CloseButton onClick={toggleFilters} />
         <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
