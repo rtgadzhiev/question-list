@@ -10,7 +10,7 @@
   background-color: var(--color-purple-700);
 }
 
-.checkbox:focus-within {
+.checkbox:has(:focus-visible) {
   outline: 2px dashed var(--color-purple-700);
   outline-offset: 2px;
   transition-duration: 0s !important;
