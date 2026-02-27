@@ -14,7 +14,7 @@ export function QuestionsProvider({ children }) {
     limit: LIMIT,
     specializationId: 11,
     skills: [],
-    titleOrDescription: '',
+    title: '',
     complexity: [],
     rate: [],
   });

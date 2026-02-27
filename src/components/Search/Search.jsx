@@ -13,8 +13,8 @@ function Search() {
   const debouncedValue = useDebounce(value, 1000);
 
   useEffect(() => {
-    if (debouncedValue !== questionsFilters?.titleOrDescription) {
-      changeQuestionsFilters('titleOrDescription', debouncedValue);
+    if (debouncedValue !== questionsFilters?.title) {
+      changeQuestionsFilters('title', debouncedValue);
       changeQuestionsFilters('page', 1);
     }
   }, [debouncedValue]);
