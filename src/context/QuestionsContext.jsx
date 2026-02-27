@@ -24,16 +24,6 @@ export function QuestionsProvider({ children }) {
   );
 
   useEffect(() => {
-    changeQuestionsFilters('page', 1);
-  }, [
-    questionsFilters?.specializationId,
-    questionsFilters?.skills,
-    questionsFilters?.titleOrDescription,
-    questionsFilters?.complexity,
-    questionsFilters?.rate,
-  ]);
-
-  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [questionsFilters?.page, questionsFilters?.specializationId]);
 

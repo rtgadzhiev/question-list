@@ -15,6 +15,7 @@ function Rating() {
       : [...currentRating, ratingId];
 
     changeQuestionsFilters('rate', newRating);
+    changeQuestionsFilters('page', 1);
   };
 
   const isChecked = (ratingId) =>

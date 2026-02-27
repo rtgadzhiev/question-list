@@ -31,6 +31,7 @@ function Specializations() {
     }
 
     changeQuestionsFilters('skills', []);
+    changeQuestionsFilters('page', 1);
   };
 
   const toggleAllSpecializations = () => {
