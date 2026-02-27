@@ -7,6 +7,7 @@ function BurgerButton({ onClick, isOpen }) {
     <Button
       onClick={onClick}
       className={clsx(styles.burgerButton, { [styles.isOpen]: isOpen })}
+      title={'Открыть меню'}
     >
       <span className={clsx(styles.line, { [styles.isOpen]: isOpen })}></span>
       <span className={clsx(styles.line, { [styles.isOpen]: isOpen })}></span>

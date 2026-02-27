@@ -12,7 +12,7 @@ function Logo({
   isTextHiddenOnMobile,
 }) {
   return (
-    <Link className={clsx(styles.logo, className)} href="#">
+    <Link className={clsx(styles.logo, className)} href="#" title="YeaHub">
       {isLogo && <img src={logo} alt="" width="33" height="33" />}
       <img
         className={clsx(styles.text, {

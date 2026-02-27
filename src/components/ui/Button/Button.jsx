@@ -9,6 +9,7 @@ function Button({
   type,
   ref,
   tabIndex,
+  title,
 }) {
   return (
     <button
@@ -18,6 +19,8 @@ function Button({
       type={type}
       ref={ref}
       tabIndex={tabIndex}
+      aria-label={title}
+      title={title}
     >
       {children}
     </button>
