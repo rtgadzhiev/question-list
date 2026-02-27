@@ -6,14 +6,12 @@ import styles from './QuestionsSection.module.css';
 
 function QuestionsSection() {
   return (
-    <section>
-      <Container className={styles.questionsSectionContainer}>
-        <QuestionsProvider>
-          <Questions />
-          <QuestionsFilters />
-        </QuestionsProvider>
-      </Container>
-    </section>
+    <Container className={styles.questionsSectionContainer}>
+      <QuestionsProvider>
+        <Questions />
+        <QuestionsFilters isOpen={true} />
+      </QuestionsProvider>
+    </Container>
   );
 }
 

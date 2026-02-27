@@ -1,15 +1,11 @@
-.filters {
+.aside {
   position: sticky;
   top: 20px;
-  padding: 24px;
+  width: 100%;
 }
 
-@media (width <= 768px) {
-  .filters {
-    padding-top: 44px;
-    padding-inline: 16px;
-    padding-bottom: 16px;
-  }
+.filters {
+  padding: 24px;
 }
 
 .form {
@@ -17,4 +13,41 @@
   flex-direction: column;
   row-gap: 24px;
   align-self: flex-start;
+}
+
+@media (width <= 1024px) {
+  .aside {
+    display: none;
+    max-width: 328px;
+    z-index: 1000;
+  }
+
+  .filters {
+    padding-top: 17px;
+    padding-inline: 16px;
+    padding-bottom: 16px;
+    border-radius: 0;
+    box-shadow: var(--box-shadow);
+  }
+
+  .aside.isOpen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+  }
+
+  .form {
+    padding-top: 8px;
+  }
+}
+
+@media (width <= 768px) {
+  .aside {
+    max-width: 100%;
+  }
+
+  .filters {
+    padding-top: 20px;
+  }
 }

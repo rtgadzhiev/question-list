@@ -3,6 +3,7 @@ import elipsis from '../../assets/images/icons/pagination/pagination-ellipsis.sv
 import leftArrow from '../../assets/images/icons/pagination/pagination-arrow-left.svg';
 import rightArrow from '../../assets/images/icons/pagination/pagination-arrow-right.svg';
 import styles from './Pagination.module.css';
+import { useEffect } from 'react';
 import usePagination from '../../helpers/hooks/usePagination';
 import useQuestions from '../../helpers/hooks/useQuestions';
 import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';

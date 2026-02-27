@@ -1,4 +1,5 @@
 .questionsSectionContainer {
+  position: relative;
   display: grid;
   padding-top: 40px;
   padding-bottom: 130px;
@@ -12,6 +13,7 @@
   .questionsSectionContainer {
     padding-top: 24px;
     padding-bottom: 80px;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

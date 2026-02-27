@@ -1,4 +1,4 @@
-import { createContext, useMemo } from 'react';
+import { createContext, useEffect, useMemo } from 'react';
 
 import { LIMIT } from '../constants/constants';
 import { getPublicQuestions } from '../api/apiQuestions';
@@ -16,12 +16,16 @@ export function QuestionsProvider({ children }) {
     skills: [],
     titleOrDescription: '',
     complexity: [],
-    rate: [1],
+    rate: [],
   });
   const [questions, isLoading, error] = useFetch(
     getPublicQuestions,
     questionsFilters,
   );
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [questionsFilters?.page, questionsFilters?.specializationId]);
 
   const value = useMemo(
     () => ({ questions, questionsFilters, isLoading, error }),

@@ -1,0 +1,13 @@
+.button {
+  display: none;
+  padding: 6px;
+  border-radius: var(--border-radius-xs);
+  border: var(--border-gray-200);
+  background-color: transparent;
+}
+
+@media (width <= 1024px) {
+  .button {
+    display: block;
+  }
+}
