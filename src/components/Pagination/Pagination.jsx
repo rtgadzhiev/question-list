@@ -39,18 +39,22 @@ function Pagination() {
         currentPage={currentPage}
       />
       {paginationRange.length > 1 ? (
-        paginationRange?.map((pageNumber, index) => (
-          <Button
-            key={index}
-            onClick={() => handlePageClick(pageNumber)}
-            className={clsx({
-              [styles.isActive]: pageNumber === currentPage,
-            })}
-            isDisabled={pageNumber === currentPage}
-          >
-            {pageNumber || <img src={elipsis} alt="" width="8" height="2" />}
-          </Button>
-        ))
+        paginationRange?.map((pageNumber, index) =>
+          pageNumber ? (
+            <Button
+              key={index}
+              onClick={() => handlePageClick(pageNumber)}
+              className={clsx(styles.button, {
+                [styles.isActive]: pageNumber === currentPage,
+              })}
+              isDisabled={pageNumber === currentPage}
+            >
+              {pageNumber}
+            </Button>
+          ) : (
+            <img key={index} src={elipsis} alt="" width="8" height="2" />
+          ),
+        )
       ) : (
         <Button className={styles.isActive} isDisabled={true}>
           1

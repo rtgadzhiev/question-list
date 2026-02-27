@@ -12,6 +12,7 @@ function Dropdown(props) {
     ref,
     isMobile = false,
     position,
+    tabIndex,
   } = props;
 
   return (
@@ -22,6 +23,7 @@ function Dropdown(props) {
           [styles.isMobile]: isMobile,
         })}
         onClick={onToggle}
+        tabIndex={tabIndex}
       >
         {trigger}
       </Button>

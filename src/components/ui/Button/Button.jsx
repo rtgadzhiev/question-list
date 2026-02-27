@@ -8,6 +8,7 @@ function Button({
   isDisabled = false,
   type,
   ref,
+  tabIndex,
 }) {
   return (
     <button
@@ -16,6 +17,7 @@ function Button({
       disabled={isDisabled}
       type={type}
       ref={ref}
+      tabIndex={tabIndex}
     >
       {children}
     </button>

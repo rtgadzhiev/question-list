@@ -12,6 +12,10 @@
   padding-block: 24px;
 }
 
+.button:active {
+  scale: none;
+}
+
 @media (width <= 1024px) {
   .button {
     padding-inline: 16px;
