@@ -12,11 +12,11 @@ import { useUI } from '../../helpers/hooks/useUI';
 
 function QuestionsFilters() {
   const { isFiltersOpen, toggleFilters } = useUI();
-  const asideRef = useClickOutside(toggleFilters);
+  const filtersRef = useClickOutside(toggleFilters);
 
   return (
     <aside
-      ref={asideRef}
+      ref={filtersRef}
       className={clsx(styles.aside, { [styles.isOpen]: isFiltersOpen })}
     >
       <Card className={styles.filters}>
