@@ -5,6 +5,10 @@
   border: var(--border-gray-50);
 }
 
+.input:focus {
+  border: var(--border-purple-700);
+}
+
 .input:focus-visible {
   outline: 2px dashed var(--color-purple-700);
   outline-offset: 2px;
