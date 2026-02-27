@@ -1,0 +1,14 @@
+.button {
+  display: none;
+  margin-left: auto;
+  margin-right: 0;
+  background-color: transparent;
+  border: none;
+  padding: 1px;
+}
+
+@media (width <= 1024px) {
+  .button {
+    display: block;
+  }
+}

@@ -1,13 +1,8 @@
-import { useEffect, useMemo } from 'react';
-
 import { LIMIT } from '../../constants/constants';
 import getPaginationRange from '../getPaginationRange';
+import { useMemo } from 'react';
 
 function usePagination(currentPage, totalQuestions = 1, limit = LIMIT) {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage]);
-
   const getTotalPages = (totalQuestions, limit) => {
     return Math.ceil(totalQuestions / limit);
   };
@@ -24,7 +19,7 @@ function usePagination(currentPage, totalQuestions = 1, limit = LIMIT) {
     return getPaginationRange(currentPage, totalPages);
   }, [currentPage, totalPages]);
 
-  return { totalPages, paginationRange };
+  return { currentPage, totalPages, paginationRange };
 }
 
 export default usePagination;

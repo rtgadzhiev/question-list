@@ -1,55 +1,20 @@
-import Container from '../../layouts/Container/Container';
-import { LIMIT } from '../../constants/constants';
-import QuestionsCard from '../QuestionsCard/QuestionsCard';
+import Container from '../layout/Container/Container';
+import Questions from '../Questions/Questions';
 import QuestionsFilters from '../QuestionsFilters/QuestionsFilters';
-import { getPublicQuestions } from '../../api/apiQuestions';
+import { QuestionsProvider } from '../../context/QuestionsContext';
+import { UIProvider } from '../../context/UIContext';
 import styles from './QuestionsSection.module.css';
-import useFetch from '../../helpers/hooks/useFetch';
-import useFilters from '../../helpers/hooks/useFilters';
-import usePagination from '../../helpers/hooks/usePagination';
 
 function QuestionsSection() {
-  // TODO: Filters
-  const { filters, changeFilters } = useFilters({ page: 1, limit: LIMIT });
-  const { data, isLoading } = useFetch(getPublicQuestions, filters);
-  const { totalPages, paginationRange } = usePagination(
-    filters?.page,
-    data?.total,
-    filters?.limit,
-  );
-
-  const handleNextPage = () => {
-    if (filters.page < totalPages) {
-      changeFilters('page', filters.page + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (filters.page > 1) {
-      changeFilters('page', filters.page - 1);
-    }
-  };
-
-  const handlePageClick = (pageNumber) => {
-    changeFilters('page', pageNumber);
-  };
-
   return (
-    <section>
-      <Container className={styles.questionsSectionContainer}>
-        <QuestionsCard
-          isLoading={isLoading}
-          questions={data}
-          currentPage={filters?.page}
-          totalPages={totalPages}
-          paginationRange={paginationRange}
-          handleNextPage={handleNextPage}
-          handlePreviousPage={handlePreviousPage}
-          handlePageClick={handlePageClick}
-        />
-        {/* <QuestionsFiltersCard /> */}
-      </Container>
-    </section>
+    <Container className={styles.questionsSectionContainer}>
+      <QuestionsProvider>
+        <UIProvider>
+          <Questions />
+          <QuestionsFilters />
+        </UIProvider>
+      </QuestionsProvider>
+    </Container>
   );
 }
 
