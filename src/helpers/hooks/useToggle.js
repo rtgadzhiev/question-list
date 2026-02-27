@@ -5,5 +5,5 @@ export default function useToggle() {
 
   const toggle = () => setIsOpen((prev) => !prev);
 
-  return [isOpen, toggle];
+  return [isOpen, toggle, setIsOpen];
 }
