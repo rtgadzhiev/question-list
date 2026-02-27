@@ -17,6 +17,7 @@
 
 @media (width <= 1024px) {
   .aside {
+    visibility: hidden;
     position: absolute;
     top: 0;
     right: 0;
@@ -35,6 +36,7 @@
   }
 
   .aside.isOpen {
+    visibility: visible;
     transform: translateX(0);
   }
 

@@ -5,8 +5,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: transparent;
-  border: none;
   transition: padding-block var(--transition-duration);
 }
 
@@ -14,13 +12,13 @@
   padding-block: 24px;
 }
 
-@media (width < 1024px) {
+@media (width <= 1024px) {
   .button {
     padding-inline: 16px;
   }
 }
 
-@media (width < 768px) {
+@media (width <= 768px) {
   .button {
     padding: 10px;
   }

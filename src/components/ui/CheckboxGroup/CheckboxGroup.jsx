@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import Skeleton from '../Skeleton/Skeleton';
 import styles from './CheckboxGroup.module.css';
@@ -33,13 +34,9 @@ function CheckboxGroup({
         )}
       </div>
       {isShowAllButton && (
-        <button
-          className={styles.button}
-          type="button"
-          onClick={() => onClick()}
-        >
+        <Button className={styles.button} onClick={onClick}>
           {isOpen ? 'Скрыть' : 'Посмотреть все'}
-        </button>
+        </Button>
       )}
     </fieldset>
   );

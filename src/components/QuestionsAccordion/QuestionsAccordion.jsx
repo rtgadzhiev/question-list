@@ -23,8 +23,12 @@ function QuestionsAccordion() {
             questionId={question.id}
           />
         ))}
-      {!questions?.data.length && 'Вопросы не найдены'}
-      {!isLoading && error && 'Ошибка сервера'}
+      {!isLoading && error && (
+        <span className={styles.error}>
+          {error.name}: {error.message}
+        </span>
+      )}
+      {!isLoading && !error && !questions?.data.length && 'Вопросы не найдены'}
     </ul>
   );
 }

@@ -18,3 +18,7 @@
     height: 44px;
   }
 }
+
+.error {
+  color: var(--color-red);
+}
