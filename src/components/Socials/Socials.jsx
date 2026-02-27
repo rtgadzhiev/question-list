@@ -1,3 +1,4 @@
+import Link from '../ui/Link/Link';
 import { SOCIALS_ITEMS } from '../../constants/constants';
 import styles from './Socials.module.css';
 
@@ -7,7 +8,7 @@ function Socials() {
       <ul className={styles.socials}>
         {SOCIALS_ITEMS.map((item) => (
           <li key={item.id}>
-            <a href="">
+            <Link href="">
               <img
                 className={styles.icon}
                 src={item.icon}
@@ -15,7 +16,7 @@ function Socials() {
                 width="24"
                 height="24"
               />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

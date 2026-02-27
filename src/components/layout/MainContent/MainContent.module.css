@@ -1,4 +1,6 @@
 .main {
+  position: relative;
+  overflow-x: hidden;
   flex: 1;
   background-color: var(--color-beige);
 }

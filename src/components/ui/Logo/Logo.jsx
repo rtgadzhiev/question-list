@@ -1,3 +1,4 @@
+import Link from '../Link/Link';
 import clsx from 'clsx';
 import logo from '../../../assets/images/icons/yeahub-icon.svg';
 import styles from './Logo.module.css';
@@ -11,7 +12,7 @@ function Logo({
   isTextHiddenOnMobile,
 }) {
   return (
-    <a className={clsx(styles.logo, className)} href="#">
+    <Link className={clsx(styles.logo, className)} href="#">
       {isLogo && <img src={logo} alt="" width="33" height="33" />}
       <img
         className={clsx(styles.text, {
@@ -22,7 +23,7 @@ function Logo({
         width="99"
         height="32"
       />
-    </a>
+    </Link>
   );
 }
 

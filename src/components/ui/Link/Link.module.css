@@ -2,11 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 6px;
   text-decoration: none;
   line-height: 1.4;
   color: var(--color-black-900);
-  border-radius: var(--border-radius-xs);
+  border-radius: var(--border-radius-xxs);
   max-width: fit-content;
   transition-duration: var(--transition-duration);
 }
@@ -26,6 +25,5 @@
 }
 
 .link:hover {
-  opacity: 0.9;
-  /* background-color: var(--color-black-10); */
+  opacity: 0.8;
 }

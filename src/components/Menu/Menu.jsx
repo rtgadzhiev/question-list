@@ -8,7 +8,9 @@ function Menu({ className }) {
       <ul className={styles.menu}>
         {MENU_ITEMS.map((item) => (
           <li key={item.id}>
-            <Link isActive={item.isActive}>{item.title}</Link>
+            <Link className={styles.link} isActive={item.isActive}>
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>

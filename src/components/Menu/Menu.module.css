@@ -5,6 +5,14 @@
   color: var(--color-black-900);
 }
 
+.link {
+  padding: 6px 6px;
+}
+
+.link:hover {
+  background-color: var(--color-black-10);
+}
+
 @media (width <= 1024px) {
   .menu {
     flex-direction: column;
