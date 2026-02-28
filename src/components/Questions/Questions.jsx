@@ -1,7 +1,7 @@
 import Card from '../ui/Card/Card';
 import FiltersButton from '../ui/FiltersButton/FiltersButton';
-import Pagination from '../Pagination/Pagination';
 import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
+import QuestionsPagination from '../QuestionsPagination/QuestionsPagination';
 import QuestionsTitle from '../QuestionsTitle/QuestionsTitle';
 import styles from './Questions.module.css';
 import { useUI } from '../../helpers/hooks/useUI';
@@ -17,7 +17,7 @@ function Questions() {
           <FiltersButton onClick={toggleFilters} />
         </header>
         <QuestionsAccordion />
-        <Pagination />
+        <QuestionsPagination />
       </Card>
     </section>
   );
