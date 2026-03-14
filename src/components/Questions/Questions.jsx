@@ -5,6 +5,7 @@ import QuestionsPagination from '../QuestionsPagination/QuestionsPagination';
 import QuestionsTitle from '../QuestionsTitle/QuestionsTitle';
 import styles from './Questions.module.css';
 import { useUI } from '../../helpers/hooks/useUI';
+import { QuestionsProvider } from '../../context/QuestionsContext';
 
 function Questions() {
   const { toggleFilters } = useUI();
@@ -16,8 +17,10 @@ function Questions() {
           <QuestionsTitle />
           <FiltersButton onClick={toggleFilters} />
         </header>
-        <QuestionsAccordion />
-        <QuestionsPagination />
+        <QuestionsProvider>
+          <QuestionsAccordion />
+          <QuestionsPagination />
+        </QuestionsProvider>
       </Card>
     </section>
   );
