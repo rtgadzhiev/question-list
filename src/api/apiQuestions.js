@@ -8,8 +8,8 @@ export async function getSpecializations(params) {
   return apiRequest('specializations', params);
 }
 
-export async function getSkills(filters) {
-  return apiRequest('skills', filters);
+export async function getSkills(id) {
+  return apiRequest(`skills/${id ? `?specializations=${id}` : ''}`);
 }
 
 export async function getSpecialization(id) {

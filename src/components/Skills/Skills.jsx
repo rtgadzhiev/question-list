@@ -1,55 +1,54 @@
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSkills } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
-import { useMemo } from 'react';
-import useOptions from '../../helpers/hooks/useOptions';
-import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
+import { useState } from 'react';
+import { useSearchParams } from 'react-router';
 
 function Skills() {
-  const { questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
-
-  const { isOpen, setIsOpen, limit, setLimit } = useOptions(8);
-  const filters = useMemo(
-    () => ({
-      page: 1,
-      limit,
-      specializations: questionsFilters?.specializationId,
-    }),
-    [limit, questionsFilters?.specializationId],
+  const [searchParams, setSearchParams] = useSearchParams();
+  const specializationId = searchParams.get('specializationId');
+  const [options, isLoading, setIsLoading] = useFetch(
+    getSkills,
+    specializationId,
   );
-  const [options, isLoading] = useFetch(getSkills, filters);
-
-  const changeSkills = (skillId) => {
-    const currentSkills = questionsFilters?.skills;
-
-    const newSkills = isChecked(skillId)
-      ? currentSkills.filter((id) => id !== skillId)
-      : [...currentSkills, skillId];
-
-    changeQuestionsFilters('skills', newSkills);
-    changeQuestionsFilters('page', 1);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   const isChecked = (skillId) => {
-    return questionsFilters?.skills.some((skill) => skill === skillId);
+    const newParams = new URLSearchParams(searchParams);
+    const skills = newParams.get('skills') || '';
+    const currentSkills = skills ? skills.split(',') : [];
+
+    return currentSkills.some((skill) => +skill === skillId);
   };
 
-  const toggleAllSkills = (minValue = 8, maxValue = 16) => {
-    if (limit === minValue) {
-      setLimit(maxValue);
-      setIsOpen(true);
+  const changeSkills = (skillId) => {
+    const newParams = new URLSearchParams(searchParams);
+    const skills = newParams.get('skills') || '';
+    const currentSkills = skills ? skills.split(',') : [];
+
+    const newSkills = isChecked(skillId)
+      ? currentSkills.filter((id) => +id !== skillId).join(',')
+      : [...currentSkills, skillId].join(',');
+
+    if (!newSkills.length) {
+      newParams.delete('skills');
     } else {
-      setLimit(minValue);
-      setIsOpen(false);
+      newParams.set('skills', newSkills);
     }
+
+    newParams.delete('page');
+
+    setSearchParams(newParams);
+  };
+
+  const toggleAllSkills = () => {
+    setIsOpen((prev) => !prev);
   };
 
   return (
     <CheckboxGroup
       legend="Навыки"
-      options={options}
+      options={isOpen ? options?.data : options?.data.slice(0, 5)}
       isLoading={isLoading}
       onChange={changeSkills}
       isChecked={isChecked}

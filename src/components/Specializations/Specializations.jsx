@@ -39,7 +39,7 @@ function Specializations() {
   return (
     <CheckboxGroup
       legend="Специализация"
-      options={options}
+      options={isOpen ? options?.data : options?.data.slice(0, 5)}
       isLoading={isLoading}
       onChange={changeSpecialization}
       isChecked={isChecked}

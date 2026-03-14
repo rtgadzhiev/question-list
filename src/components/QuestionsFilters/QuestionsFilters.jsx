@@ -22,7 +22,7 @@ function QuestionsFilters() {
         <form className={styles.form}>
           <Search />
           <Specializations />
-          {/* <Skills /> */}
+          <Skills />
           {/* <Complexity /> */}
           {/* <Rating /> */}
         </form>
