@@ -4,7 +4,6 @@ import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 
 function Complexity() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const complexity = searchParams.get('complexity');
 
   const isChecked = (id) => {
     const complexityOption = COMPLEXITY_OPTIONS?.data.find(
@@ -40,7 +39,6 @@ function Complexity() {
     }
 
     newParams.delete('page');
-
     setSearchParams(newParams);
   };
 

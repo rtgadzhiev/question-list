@@ -1,30 +1,41 @@
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { RATING_OPTIONS } from '../../constants/constants';
-import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
+import { useSearchParams } from 'react-router';
 
 function Rating() {
-  const { questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const changeRating = (ratingId) => {
-    const currentRating = questionsFilters?.rate;
+  const isChecked = (id) => {
+    const newParams = new URLSearchParams(searchParams);
+    const rate = newParams.get('rate') || '';
+    const currentRate = rate ? rate.split(',') : [];
 
-    const newRating = isChecked(ratingId)
-      ? currentRating.filter((option) => option !== ratingId)
-      : [...currentRating, ratingId];
-
-    changeQuestionsFilters('rate', newRating);
-    changeQuestionsFilters('page', 1);
+    return currentRate.some((option) => +option === id);
   };
 
-  const isChecked = (ratingId) =>
-    questionsFilters?.rate.some((option) => option === ratingId);
+  const changeRating = (id) => {
+    const newParams = new URLSearchParams(searchParams);
+    const rate = newParams.get('rate') || '';
+    const currentRate = rate ? rate.split(',') : [];
+
+    const newRating = isChecked(id)
+      ? currentRate.filter((option) => +option !== id).join(',')
+      : [...currentRate, id].join(',');
+
+    if (!newRating.length) {
+      newParams.delete('rate');
+    } else {
+      newParams.set('rate', newRating);
+    }
+
+    newParams.delete('page');
+    setSearchParams(newParams);
+  };
 
   return (
     <CheckboxGroup
       legend="Рейтинг"
-      options={RATING_OPTIONS}
+      options={RATING_OPTIONS?.data}
       onChange={changeRating}
       isChecked={isChecked}
     />
