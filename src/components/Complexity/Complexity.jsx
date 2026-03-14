@@ -1,42 +1,53 @@
+import { useSearchParams } from 'react-router';
 import { COMPLEXITY_OPTIONS } from '../../constants/constants';
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
-import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
 function Complexity() {
-  const { questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const complexity = searchParams.get('complexity');
+
+  const isChecked = (id) => {
+    const complexityOption = COMPLEXITY_OPTIONS?.data.find(
+      (option) => option.id === id,
+    );
+    const newParams = new URLSearchParams(searchParams);
+    const complexity = newParams.get('complexity') || '';
+    const currentComplexity = complexity ? complexity.split(',') : [];
+
+    return currentComplexity.some(
+      (option) => +option === complexityOption.value[0],
+    );
+  };
 
   const changeComplexity = (complexityId) => {
-    const currentComplexity = questionsFilters?.complexity;
+    const newParams = new URLSearchParams(searchParams);
+    const complexity = newParams.get('complexity') || '';
+    const currentComplexity = complexity ? complexity.split(',') : [];
     const complexityOption = COMPLEXITY_OPTIONS?.data.find(
       (option) => option.id === complexityId,
     );
 
     const newComplexity = isChecked(complexityId)
-      ? currentComplexity.filter(
-          (option) => !complexityOption.value.includes(option),
-        )
-      : [...currentComplexity, ...complexityOption.value];
+      ? currentComplexity
+          .filter((option) => !complexityOption.value.includes(+option))
+          .join(',')
+      : [...currentComplexity, ...complexityOption.value].join(',');
 
-    changeQuestionsFilters('complexity', newComplexity);
-    changeQuestionsFilters('page', 1);
-  };
+    if (!newComplexity.length) {
+      newParams.delete('complexity');
+    } else {
+      newParams.set('complexity', newComplexity);
+    }
 
-  const isChecked = (complexityId) => {
-    const complexityOption = COMPLEXITY_OPTIONS?.data.find(
-      (option) => option.id === complexityId,
-    );
+    newParams.delete('page');
 
-    return questionsFilters?.complexity.some(
-      (option) => option === complexityOption.value[0],
-    );
+    setSearchParams(newParams);
   };
 
   return (
     <CheckboxGroup
       legend="Уровень сложности"
-      options={COMPLEXITY_OPTIONS}
+      options={COMPLEXITY_OPTIONS?.data}
       onChange={changeComplexity}
       isChecked={isChecked}
     />

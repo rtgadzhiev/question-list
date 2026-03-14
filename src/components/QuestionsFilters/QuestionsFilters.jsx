@@ -23,7 +23,7 @@ function QuestionsFilters() {
           <Search />
           <Specializations />
           <Skills />
-          {/* <Complexity /> */}
+          <Complexity />
           {/* <Rating /> */}
         </form>
       </Card>
