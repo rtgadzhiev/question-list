@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router';
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
   const title = searchParams.get('title') || '';
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(title);
   const debouncedValue = useDebounce(value, 1000);
 
   useEffect(() => {
