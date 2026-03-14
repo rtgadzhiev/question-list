@@ -1,7 +1,7 @@
 import { apiRequest } from './apiRequest';
 
-export async function getPublicQuestions(filters) {
-  return apiRequest('questions/public-questions/', filters);
+export async function getPublicQuestions(params) {
+  return apiRequest('questions/public-questions/', params);
 }
 
 export async function getSpecializations(filters) {

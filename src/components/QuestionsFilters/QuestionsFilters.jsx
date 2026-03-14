@@ -21,10 +21,10 @@ function QuestionsFilters() {
         <CloseButton onClick={toggleFilters} />
         <form className={styles.form}>
           <Search />
-          <Specializations />
-          <Skills />
-          <Complexity />
-          <Rating />
+          {/* <Specializations /> */}
+          {/* <Skills /> */}
+          {/* <Complexity /> */}
+          {/* <Rating /> */}
         </form>
       </Card>
     </aside>

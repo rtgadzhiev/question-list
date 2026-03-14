@@ -1,11 +1,7 @@
-import Layout from '../../components/layout/Layout/Layout';
+import QuestionsSection from '../../components/QuestionsSection/QuestionsSection';
 
 function MainPage() {
-  return (
-    <>
-      <Layout />
-    </>
-  );
+  return <QuestionsSection />;
 }
 
 export default MainPage;

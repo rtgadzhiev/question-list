@@ -4,8 +4,8 @@ import useQuestions from '../../helpers/hooks/useQuestions';
 import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
 function QuestionsPagination() {
-  const { questions, questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
+  // const { questions, questionsFilters } = useQuestions();
+  // const { changeQuestionsFilters } = useQuestionsFilters();
 
   const { currentPage, totalPages, paginationRange } = usePagination(
     questionsFilters?.page,

@@ -3,3 +3,15 @@
   flex-direction: column;
   min-height: 910px;
 }
+
+.main {
+  position: relative;
+  flex: 1;
+  background-color: var(--color-beige);
+}
+
+@media (width <= 1024px) {
+  .main {
+    overflow-x: hidden;
+  }
+}
