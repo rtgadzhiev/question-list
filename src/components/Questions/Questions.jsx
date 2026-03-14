@@ -17,7 +17,7 @@ function Questions() {
           <FiltersButton onClick={toggleFilters} />
         </header>
         <QuestionsAccordion />
-        {/* <QuestionsPagination /> */}
+        <QuestionsPagination />
       </Card>
     </section>
   );
