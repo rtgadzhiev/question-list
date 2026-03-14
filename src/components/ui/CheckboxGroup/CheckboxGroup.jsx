@@ -18,20 +18,30 @@ function CheckboxGroup({
     <fieldset className={styles.fieldset}>
       <legend className={styles.legend}>{legend}</legend>
       <div className={styles.wrapper}>
-        {isLoading ? (
+        {isLoading && (
           <Skeleton className={styles.skeleton} count={skeletonCount} />
-        ) : (
-          options?.data.map((option) => (
-            <FilterCheckbox
-              className={styles.checkbox}
-              key={option.id}
-              label={option.title}
-              onChange={() => onChange(option.id)}
-              checked={isChecked ? isChecked(option.id) : false}
-              // imageSrc={option?.imageSrc}
-            />
-          ))
         )}
+        {isOpen
+          ? options?.data.map((option) => (
+              <FilterCheckbox
+                className={styles.checkbox}
+                key={option.id}
+                label={option.title}
+                onChange={() => onChange(option.id)}
+                checked={isChecked ? isChecked(option.id) : false}
+                // imageSrc={option?.imageSrc}
+              />
+            ))
+          : options?.data.slice(0, 5).map((option) => (
+              <FilterCheckbox
+                className={styles.checkbox}
+                key={option.id}
+                label={option.title}
+                onChange={() => onChange(option.id)}
+                checked={isChecked ? isChecked(option.id) : false}
+                // imageSrc={option?.imageSrc}
+              />
+            ))}
       </div>
       {isShowAllButton && (
         <Button className={styles.button} onClick={onClick} type="button">

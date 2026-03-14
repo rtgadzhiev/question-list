@@ -21,7 +21,7 @@ function QuestionsFilters() {
         <CloseButton onClick={toggleFilters} />
         <form className={styles.form}>
           <Search />
-          {/* <Specializations /> */}
+          <Specializations />
           {/* <Skills /> */}
           {/* <Complexity /> */}
           {/* <Rating /> */}

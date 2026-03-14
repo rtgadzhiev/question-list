@@ -4,8 +4,8 @@ export async function getPublicQuestions(params) {
   return apiRequest('questions/public-questions/', params);
 }
 
-export async function getSpecializations(filters) {
-  return apiRequest('specializations', filters);
+export async function getSpecializations(params) {
+  return apiRequest('specializations', params);
 }
 
 export async function getSkills(filters) {

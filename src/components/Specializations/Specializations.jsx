@@ -1,51 +1,39 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
-import useOptions from '../../helpers/hooks/useOptions';
-import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
+import { useSearchParams } from 'react-router';
 
 function Specializations() {
-  const { questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const specializationId = +searchParams.get('specializationId');
 
-  const { isOpen, setIsOpen, limit, setLimit } = useOptions(5);
+  const [options, isLoading] = useFetch(getSpecializations);
 
-  const filters = useMemo(
-    () => ({
-      page: 1,
-      limit: limit,
-    }),
-    [limit],
-  );
+  const changeSpecialization = (id) => {
+    const newParams = new URLSearchParams(searchParams);
 
-  const [options, isLoading] = useFetch(getSpecializations, filters);
-
-  const changeSpecialization = (specializationId) => {
-    if (questionsFilters?.specializationId === specializationId) {
-      changeQuestionsFilters('specializationId', null);
+    if (specializationId === id) {
+      newParams.delete('specializationId');
     } else {
-      changeQuestionsFilters('specializationId', specializationId);
+      newParams.delete('specializationId');
+      newParams.append('specializationId', id);
     }
 
-    changeQuestionsFilters('skills', []);
-    changeQuestionsFilters('page', 1);
+    newParams.delete('skills');
+    newParams.delete('page');
+
+    setSearchParams(newParams);
   };
 
   const toggleAllSpecializations = () => {
-    if (limit === 5) {
-      setLimit(26);
-      setIsOpen(true);
-    } else {
-      setLimit(5);
-      setIsOpen(false);
-    }
+    setIsOpen((prev) => !prev);
   };
 
-  const isChecked = (specializationId) => {
-    return questionsFilters?.specializationId === specializationId;
+  const isChecked = (id) => {
+    return specializationId === id;
   };
 
   return (

@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
-
 import SearchInput from '../ui/SearchInput/SearchInput';
 import { useDebounce } from '../../helpers/hooks/useDebounce';
-import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 import { useSearchParams } from 'react-router';
 
 function Search() {
@@ -22,7 +19,7 @@ function Search() {
         newParams.set('title', debouncedValue);
       }
 
-      newParams.set('page', 1);
+      newParams.delete('page');
       setSearchParams(newParams);
     }
   }, [debouncedValue]);
@@ -43,7 +40,7 @@ function Search() {
           newParams.set('title', value);
         }
 
-        newParams.set('page', 1);
+        newParams.delete('page');
         setSearchParams(newParams);
       }
     }
