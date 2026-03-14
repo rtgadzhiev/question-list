@@ -9,7 +9,7 @@ export async function getSpecializations(params) {
 }
 
 export async function getSkills(id) {
-  return apiRequest(`skills/${id ? `?specializations=${id}` : ''}`);
+  return apiRequest(`skills/?limit=30${id ? `&specializations=${id}` : ''}`);
 }
 
 export async function getSpecialization(id) {
