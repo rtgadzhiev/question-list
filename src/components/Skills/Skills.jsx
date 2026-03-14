@@ -1,17 +1,17 @@
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSkills } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
-import { useState } from 'react';
 import { useSearchParams } from 'react-router';
+import useToggle from '../../helpers/hooks/useToggle';
 
 function Skills() {
+  const [isOpen, toggleAllSkills] = useToggle(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const specializationId = searchParams.get('specializationId');
   const [options, isLoading, setIsLoading] = useFetch(
     getSkills,
     specializationId,
   );
-  const [isOpen, setIsOpen] = useState(false);
 
   const isChecked = (skillId) => {
     const newParams = new URLSearchParams(searchParams);
@@ -39,10 +39,6 @@ function Skills() {
     newParams.delete('page');
 
     setSearchParams(newParams);
-  };
-
-  const toggleAllSkills = () => {
-    setIsOpen((prev) => !prev);
   };
 
   return (

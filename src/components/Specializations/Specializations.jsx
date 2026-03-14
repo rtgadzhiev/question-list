@@ -1,12 +1,11 @@
-import { useState } from 'react';
-
 import CheckboxGroup from '../ui/CheckboxGroup/CheckboxGroup';
 import { getSpecializations } from '../../api/apiQuestions';
 import useFetch from '../../helpers/hooks/useFetch';
 import { useSearchParams } from 'react-router';
+import useToggle from '../../helpers/hooks/useToggle';
 
 function Specializations() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, toggleAllSpecializations] = useToggle(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const specializationId = +searchParams.get('specializationId');
 
@@ -26,10 +25,6 @@ function Specializations() {
     newParams.delete('page');
 
     setSearchParams(newParams);
-  };
-
-  const toggleAllSpecializations = () => {
-    setIsOpen((prev) => !prev);
   };
 
   const isChecked = (id) => {

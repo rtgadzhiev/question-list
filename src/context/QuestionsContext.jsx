@@ -4,19 +4,9 @@ import useFetch from '../helpers/hooks/useFetch';
 import { useSearchParams } from 'react-router';
 
 export const QuestionsContext = createContext(null);
-export const QuestionsFiltersContext = createContext(null);
 
 export function QuestionsProvider({ children }) {
-  // const [questionsFilters, changeQuestionsFilters] = useFilters({
-  //   page: 1,
-  //   limit: LIMIT,
-  //   specializationId: 11,
-  //   skills: [],
-  //   title: '',
-  //   complexity: [],
-  //   rate: [],
-  // });
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const page = searchParams.get('page');
   const specializationId = searchParams.get('specializationId');
 
