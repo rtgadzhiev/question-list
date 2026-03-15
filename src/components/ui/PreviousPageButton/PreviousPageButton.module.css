@@ -1,0 +1,7 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  column-gap: 8px;
+  color: var(--color-purple-700);
+}
