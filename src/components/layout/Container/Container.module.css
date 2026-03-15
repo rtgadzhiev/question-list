@@ -12,9 +12,9 @@
   }
 }
 
-@media (width <= 1024px) {
+@media (width < 1024px) {
   .container {
-    padding-top: 24px;
+    padding-top: 87px;
     padding-bottom: 80px;
   }
 }
@@ -24,5 +24,11 @@
     padding-inline: var(--container-padding-x-s);
     padding-top: 84px;
     padding-bottom: 40px;
+  }
+}
+
+@media (width < 425px) {
+  .container {
+    padding-top: 75px;
   }
 }
