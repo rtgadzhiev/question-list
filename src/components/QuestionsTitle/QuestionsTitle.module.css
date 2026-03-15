@@ -27,7 +27,7 @@
   }
 
   .skeleton {
-    width: 180px;
+    max-width: 170px;
     height: 24px;
   }
 }

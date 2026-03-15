@@ -1,17 +1,28 @@
-import Container from '../layout/Container/Container';
-import Questions from '../Questions/Questions';
-import QuestionsFilters from '../QuestionsFilters/QuestionsFilters';
-import { UIProvider } from '../../context/UIContext';
+import Card from '../ui/Card/Card';
+import FiltersButton from '../ui/FiltersButton/FiltersButton';
+import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
+import QuestionsPagination from '../QuestionsPagination/QuestionsPagination';
+import QuestionsTitle from '../QuestionsTitle/QuestionsTitle';
 import styles from './QuestionsSection.module.css';
+import { useUI } from '../../helpers/hooks/useUI';
+import { QuestionsProvider } from '../../context/QuestionsContext';
 
 function QuestionsSection() {
+  const { toggleFilters } = useUI();
+
   return (
-    <Container className={styles.container}>
-      <UIProvider>
-        <Questions />
-        <QuestionsFilters />
-      </UIProvider>
-    </Container>
+    <section>
+      <Card className={styles.questions} isShadow={true}>
+        <header className={styles.header}>
+          <QuestionsTitle />
+          <FiltersButton onClick={toggleFilters} />
+        </header>
+        <QuestionsProvider>
+          <QuestionsAccordion />
+          <QuestionsPagination />
+        </QuestionsProvider>
+      </Card>
+    </section>
   );
 }
 

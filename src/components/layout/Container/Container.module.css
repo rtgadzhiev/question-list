@@ -2,6 +2,8 @@
   max-width: calc(var(--container-width) + (var(--container-padding-x-l) * 2));
   padding-inline: var(--container-padding-x-l);
   margin-inline: auto;
+  padding-top: 40px;
+  padding-bottom: 130px;
 }
 
 @media (431px < width < 1170px) {
@@ -10,8 +12,17 @@
   }
 }
 
+@media (width <= 1024px) {
+  .container {
+    padding-top: 24px;
+    padding-bottom: 80px;
+  }
+}
+
 @media (width < 768px) {
   .container {
     padding-inline: var(--container-padding-x-s);
+    padding-top: 84px;
+    padding-bottom: 40px;
   }
 }

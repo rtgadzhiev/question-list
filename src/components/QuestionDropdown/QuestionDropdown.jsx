@@ -5,7 +5,7 @@ import styles from './QuestionDropdown.module.css';
 import useDropdown from '../../helpers/hooks/useDropdown';
 import useDropdownPosition from '../../helpers/hooks/useDropdownPosition';
 
-function QuestionDropdown({ tabIndex }) {
+function QuestionDropdown({ tabIndex, to }) {
   const [isOpen, toggleDropdown, dropdownRef] = useDropdown(false);
   const dropdownPosistion = useDropdownPosition(dropdownRef);
 
@@ -18,7 +18,7 @@ function QuestionDropdown({ tabIndex }) {
       trigger={
         <img className={styles.icon} src={icon} alt="" width="15" height="15" />
       }
-      content={<Link>Подробнее</Link>}
+      content={<Link to={to}>Подробнее</Link>}
       position={dropdownPosistion}
       tabIndex={tabIndex}
     />

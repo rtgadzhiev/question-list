@@ -4,7 +4,9 @@ import withLoader from '../helpers/hocs/withLoader';
 import { lazy } from 'react';
 import Layout from '../components/layout/Layout/Layout';
 
-const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
+const QuestionsPage = lazy(
+  () => import('../pages/QuestionsPage/QuestionsPage'),
+);
 const QuestionPage = lazy(() => import('../pages/QuestionPage/QuestionPage'));
 
 export const router = createBrowserRouter([
@@ -14,7 +16,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: withLoader(MainPage),
+        element: withLoader(QuestionsPage),
       },
       {
         path: ROUTES.QUESTION,
