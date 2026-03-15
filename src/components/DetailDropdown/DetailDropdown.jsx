@@ -1,11 +1,11 @@
 import Dropdown from '../ui/Dropdown/Dropdown';
 import Link from '../ui/Link/Link';
 import icon from '../../assets/images/icons/dropdown-dots-icon.svg';
-import styles from './QuestionDropdown.module.css';
+import styles from './DetailDropdown.module.css';
 import useDropdown from '../../helpers/hooks/useDropdown';
 import useDropdownPosition from '../../helpers/hooks/useDropdownPosition';
 
-function QuestionDropdown({ tabIndex, to }) {
+function DetailDropdown({ tabIndex, to }) {
   const [isOpen, toggleDropdown, dropdownRef] = useDropdown(false);
   const dropdownPosistion = useDropdownPosition(dropdownRef);
 
@@ -25,4 +25,4 @@ function QuestionDropdown({ tabIndex, to }) {
   );
 }
 
-export default QuestionDropdown;
+export default DetailDropdown;

@@ -1,11 +1,10 @@
 import { memo, useCallback } from 'react';
-
 import AccordionBody from '../AccordionBody/AccordionBody';
 import AccordionTrigger from '../AccordionTrigger/AccordionTrigger';
 import Arrow from '../ui/Arrow/Arrow';
 import ArrowLink from '../ui/ArrowLink/ArrowLink';
 import Metrics from '../ui/Metrics/Metrics';
-import QuestionDropdown from '../QuestionDropdown/QuestionDropdown';
+import DetailDropdown from '../DetailDropdown/DetailDropdown';
 import arrow from '../../assets/images/icons/accordion-arrow-icon.svg';
 import styles from './QuestionsAccordionItem.module.css';
 
@@ -25,7 +24,7 @@ const QuestionsAccordionItem = memo((props) => {
       <AccordionBody isOpen={isOpen}>
         <div className={styles.bodyHeader}>
           <Metrics rate={question.rate} complexity={question.complexity} />
-          <QuestionDropdown
+          <DetailDropdown
             tabIndex={!isOpen ? '-1' : undefined}
             to={`${questionId}`}
           />
