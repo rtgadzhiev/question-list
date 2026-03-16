@@ -4,6 +4,8 @@ import Grid from '../../components/layout/Grid/Grid';
 import QuestionSection from '../../components/QuestionSection/QuestionSection';
 import { UIProvider } from '../../context/UIContext';
 import PreviousPageButton from '../../components/ui/PreviousPageButton/PreviousPageButton';
+import QuestionInfo from '../../components/QuestionInfo/QuestionInfo';
+import { QuestionProvider } from '../../context/QuestionContext';
 
 function QuestionPage() {
   return (
@@ -11,8 +13,10 @@ function QuestionPage() {
       <PreviousPageButton />
       <UIProvider>
         <Grid className={styles.grid}>
-          <QuestionSection />
-          <div>filters</div>
+          <QuestionProvider>
+            <QuestionSection />
+            <QuestionInfo />
+          </QuestionProvider>
         </Grid>
       </UIProvider>
     </Container>

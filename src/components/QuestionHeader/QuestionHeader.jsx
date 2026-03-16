@@ -8,9 +8,11 @@ import Skeleton from '../ui/Skeleton/Skeleton';
 import clsx from 'clsx';
 import Card from '../ui/Card/Card';
 import QuestionsError from '../QuestionsError/QuestionsError';
+import { useUI } from '../../helpers/hooks/useUI';
 
 function QuestionHeader() {
   const { question, isLoading, error } = useQuestion();
+  const { toggle } = useUI();
 
   return (
     <Card className={styles.card} isShadow={true}>
@@ -36,14 +38,14 @@ function QuestionHeader() {
             ) : (
               <Title className={styles.title}>{question?.title}</Title>
             )}
-            <IconButton icon={icon} />
+            <IconButton onClick={toggle} icon={icon} />
           </div>
           {isLoading ? (
             <Skeleton
               className={clsx(styles.skeleton, styles.descriptionSkeleton)}
             />
           ) : (
-            <p>{question?.description}</p>
+            <p className={styles.description}>{question?.description}</p>
           )}
         </div>
       </header>

@@ -1,0 +1,26 @@
+import styles from './QuestionInfo.module.css';
+import { useUI } from '../../helpers/hooks/useUI';
+import Aside from '../ui/Aside/Aside';
+import CloseButton from '../ui/CloseButton/CloseButton';
+import QuestionMetrics from '../QuestionMetrics/QuestionMetrics';
+import QuestionSkills from '../QuestionSkills/QuestionSkills';
+import QuestionKeywords from '../QuestionKeywords/QuestionKeywords';
+import QuestionAuthor from '../QuestionAuthor/QuestionAuthor';
+
+function QuestionInfo() {
+  const { isOpen, toggle, ref } = useUI();
+
+  return (
+    <Aside ref={ref} isOpen={isOpen}>
+      <div className={styles.info}>
+        <CloseButton onClick={toggle} />
+        <QuestionMetrics />
+        <QuestionSkills />
+        <QuestionKeywords />
+        <QuestionAuthor />
+      </div>
+    </Aside>
+  );
+}
+
+export default QuestionInfo;

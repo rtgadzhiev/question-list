@@ -9,18 +9,14 @@ import icon from '../../assets/images/icons/filters-button-icon.svg';
 import IconButton from '../ui/IconButton/IconButton';
 
 function QuestionsSection() {
-  const { toggleFilters } = useUI();
+  const { toggle } = useUI();
 
   return (
     <section>
       <Card className={styles.card} isShadow={true}>
         <header className={styles.header}>
           <QuestionsTitle />
-          <IconButton
-            onClick={toggleFilters}
-            title="Открыть фильтры"
-            icon={icon}
-          />
+          <IconButton onClick={toggle} title="Открыть фильтры" icon={icon} />
         </header>
         <QuestionsProvider>
           <QuestionsAccordion />
