@@ -10,6 +10,7 @@ function Link({
   isActive,
   tabIndex,
   title,
+  replace,
 }) {
   return (
     <NavLink
@@ -18,6 +19,7 @@ function Link({
       tabIndex={tabIndex}
       title={title}
       aria-label={title}
+      replace={replace}
     >
       {children}
     </NavLink>

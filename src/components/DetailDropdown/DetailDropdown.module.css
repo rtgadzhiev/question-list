@@ -2,6 +2,10 @@
   display: block;
 }
 
+.link {
+  padding: 10px 16px;
+}
+
 .icon {
   padding-inline: 6px;
 }

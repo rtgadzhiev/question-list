@@ -18,7 +18,11 @@ function DetailDropdown({ tabIndex, to }) {
       trigger={
         <img className={styles.icon} src={icon} alt="" width="15" height="15" />
       }
-      content={<Link to={to}>Подробнее</Link>}
+      content={
+        <Link className={styles.link} to={to}>
+          Подробнее
+        </Link>
+      }
       position={dropdownPosistion}
       tabIndex={tabIndex}
     />
