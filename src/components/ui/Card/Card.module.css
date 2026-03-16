@@ -6,3 +6,9 @@
 .card.shadow {
   box-shadow: var(--box-shadow);
 }
+
+@media (width < 768px) {
+  .card {
+    border-radius: var(--border-radius-s);
+  }
+}
