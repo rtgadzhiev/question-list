@@ -45,12 +45,14 @@
   }
 }
 
+@media (width < 1024px) {
+  .filters {
+    padding-top: 83px;
+  }
+}
+
 @media (width <= 768px) {
   .aside {
     max-width: 100%;
-  }
-
-  .filters {
-    padding-top: 83px;
   }
 }

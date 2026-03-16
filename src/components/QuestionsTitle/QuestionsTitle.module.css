@@ -1,9 +1,6 @@
 .title {
   display: flex;
   gap: 5px;
-  font-size: 24px;
-  line-height: 1.2;
-  font-weight: 500;
 }
 
 .skeleton {
@@ -20,14 +17,14 @@
 }
 
 @media (width < 768px) {
+  .skeleton {
+    max-width: 170px;
+    height: 24px;
+  }
+
   .title {
     padding-top: 0;
     padding-bottom: 8px;
     font-size: 20px;
-  }
-
-  .skeleton {
-    max-width: 170px;
-    height: 24px;
   }
 }

@@ -4,6 +4,11 @@ export async function getPublicQuestions(params) {
   return apiRequest('questions/public-questions/', params);
 }
 
+export async function getPublicQuestion(id) {
+  if (!id) throw new Error('Wrong question id!');
+  return apiRequest(`questions/public-questions/${id || ''}`);
+}
+
 export async function getSpecializations(params) {
   return apiRequest('specializations', params);
 }

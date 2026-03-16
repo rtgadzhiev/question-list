@@ -8,20 +8,6 @@ export async function apiRequest(pathname, params) {
     url.search = searchParams;
   }
 
-  // if (params) {
-  //   Object.entries(params).forEach(([key, value]) => {
-  //     if (value !== undefined && value !== null && value !== '') {
-  //       if (Array.isArray(value)) {
-  //         if (value.length > 0) {
-  //           url.searchParams.append(key, value.join(', '));
-  //         }
-  //       } else {
-  //         url.searchParams.append(key, value);
-  //       }
-  //     }
-  //   });
-  // }
-
   const response = await fetch(url, {
     headers: {
       accept: 'application/json',

@@ -3,6 +3,7 @@ import styles from './QuestionsTitle.module.css';
 import useFetch from '../../helpers/hooks/useFetch';
 import { useSearchParams } from 'react-router';
 import Skeleton from '../ui/Skeleton/Skeleton';
+import Title from '../ui/Title/Title';
 
 function QuestionsTitle() {
   const [searchParams] = useSearchParams();
@@ -11,14 +12,14 @@ function QuestionsTitle() {
   const [data, isLoading] = useFetch(getSpecialization, specializationId);
 
   return (
-    <h1 className={styles.title}>
-      Вопросы
+    <Title className={styles.title}>
+      <span>Вопросы</span>
       {isLoading ? (
         <Skeleton className={styles.skeleton} />
       ) : (
         data?.title && ` ${data?.title}`
       )}
-    </h1>
+    </Title>
   );
 }
 
