@@ -10,7 +10,7 @@ function QuestionControls() {
 
   return (
     <Card className={styles.controls} isShadow={true}>
-      <Link className={styles.control} to={`/${+id - 1}`}>
+      <Link className={styles.control} to={`/${+id - 1}`} replace>
         <img
           className={styles.arrow}
           src={arrow}
@@ -20,7 +20,7 @@ function QuestionControls() {
         />
         <span>Предыдущий</span>
       </Link>
-      <Link className={styles.control} to={`/${+id + 1}`}>
+      <Link className={styles.control} to={`/${+id + 1}`} replace>
         <span>Следующий</span>
         <img
           className={clsx(styles.arrow, styles.right)}

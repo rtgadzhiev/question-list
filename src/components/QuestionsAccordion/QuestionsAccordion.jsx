@@ -1,4 +1,4 @@
-import { LIMIT } from '../../constants/constants';
+import { LIMIT } from '../../constants/api';
 import QuestionsAccordionItem from '../QuestionsAccordionItem/QuestionsAccordionItem';
 import Skeleton from '../ui/Skeleton/Skeleton';
 import styles from './QuestionsAccordion.module.css';
