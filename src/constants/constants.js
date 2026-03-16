@@ -10,8 +10,7 @@ export const MENU_ITEMS = [
   { id: 3, title: 'Материалы' },
   { id: 4, title: 'Навыки (hh)' },
 ];
-export const LIMIT = 10;
-export const BASE_URL = 'https://api.yeatwork.ru/';
+
 export const COMPLEXITY_OPTIONS = {
   data: [
     { id: 1, title: '1-3', value: [1, 2, 3] },
@@ -20,6 +19,7 @@ export const COMPLEXITY_OPTIONS = {
     { id: 4, title: '9-10', value: [9, 10] },
   ],
 };
+
 export const RATING_OPTIONS = {
   data: [
     { id: 1, title: 1 },
@@ -29,6 +29,7 @@ export const RATING_OPTIONS = {
     { id: 5, title: 5 },
   ],
 };
+
 export const SOCIALS_ITEMS = [
   { id: 1, title: 'Figma', icon: figmaIcon },
   { id: 2, title: 'Telegram', icon: telegramIcon },
@@ -36,3 +37,5 @@ export const SOCIALS_ITEMS = [
   { id: 4, title: 'TikTok', icon: tiktokIcon },
   { id: 5, title: 'GitHub', icon: githubIcon },
 ];
+
+export const TITLE_TAGS = { h1: 'h1', h2: 'h2' };

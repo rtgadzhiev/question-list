@@ -8,10 +8,10 @@ function QuestionShortAnswer() {
 
   return (
     <Card className={styles.card} isShadow={true}>
-      <Title>Краткий ответ</Title>
+      <Title type="h2">Краткий ответ</Title>
       <div dangerouslySetInnerHTML={{ __html: question?.shortAnswer }}></div>
     </Card>
   );
 }
-// TODO: Title сделать так чтобы принимал разные теги и отображал разные стили для них
+
 export default QuestionShortAnswer;

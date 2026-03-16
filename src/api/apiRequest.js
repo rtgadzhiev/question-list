@@ -1,4 +1,4 @@
-import { BASE_URL } from '../constants/constants';
+import { BASE_URL } from '../constants/api';
 
 export async function apiRequest(pathname, params) {
   const url = new URL(pathname, BASE_URL);

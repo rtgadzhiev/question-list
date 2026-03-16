@@ -1,8 +1,15 @@
 import clsx from 'clsx';
 import styles from './Title.module.css';
+import { TITLE_TAGS } from '../../../constants/constants';
 
 function Title({ type = 'h1', children, className }) {
-  return <h1 className={clsx(styles.h1, className)}>{children}</h1>;
+  const Tag = TITLE_TAGS[type];
+
+  return (
+    <Tag className={clsx(styles.title, styles[type], className)}>
+      {children}
+    </Tag>
+  );
 }
 
 export default Title;
