@@ -1,4 +1,4 @@
-import { LIMIT } from '../../constants/constants';
+import { LIMIT } from '../../constants/api';
 import getPaginationRange from '../getPaginationRange';
 import { useMemo } from 'react';
 

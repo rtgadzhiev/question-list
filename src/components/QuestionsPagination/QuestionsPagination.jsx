@@ -1,30 +1,44 @@
 import Pagination from '../ui/Pagination/Pagination';
 import usePagination from '../../helpers/hooks/usePagination';
+import { useSearchParams } from 'react-router';
 import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
 
 function QuestionsPagination() {
-  const { questions, questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
+  const { questions } = useQuestions();
+  const [seatchParams, setSearchParams] = useSearchParams();
+  const page = +seatchParams.get('page') || 1;
 
   const { currentPage, totalPages, paginationRange } = usePagination(
-    questionsFilters?.page,
+    page,
     questions?.total,
-    questionsFilters?.limit,
   );
 
   const handleNextPage = () => {
-    if (questionsFilters.page < totalPages) {
-      changeQuestionsFilters('page', questionsFilters.page + 1);
+    if (page < totalPages) {
+      const newParams = new URLSearchParams(seatchParams);
+      newParams.set('page', page + 1);
+      setSearchParams(newParams);
     }
   };
   const handlePreviousPage = () => {
-    if (questionsFilters.page > 1) {
-      changeQuestionsFilters('page', questionsFilters.page - 1);
+    if (page > 1) {
+      const newParams = new URLSearchParams(seatchParams);
+      if (page - 1 === 1) {
+        newParams.delete('page');
+      } else {
+        newParams.set('page', page - 1);
+      }
+      setSearchParams(newParams);
     }
   };
   const handlePageClick = (pageNumber) => {
-    changeQuestionsFilters('page', pageNumber);
+    const newParams = new URLSearchParams(seatchParams);
+    if (pageNumber === 1) {
+      newParams.delete('page');
+    } else {
+      newParams.set('page', pageNumber);
+    }
+    setSearchParams(newParams);
   };
 
   return (

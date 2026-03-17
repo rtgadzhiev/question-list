@@ -8,26 +8,22 @@ import Specializations from '../Specializations/Specializations';
 import clsx from 'clsx';
 import styles from './QuestionsFilters.module.css';
 import { useUI } from '../../helpers/hooks/useUI';
+import Aside from '../ui/Aside/Aside';
 
 function QuestionsFilters() {
-  const { isFiltersOpen, toggleFilters, filtersRef } = useUI();
+  const { isOpen, toggle, ref } = useUI();
 
   return (
-    <aside
-      ref={filtersRef}
-      className={clsx(styles.aside, { [styles.isOpen]: isFiltersOpen })}
-    >
-      <Card className={styles.filters}>
-        <CloseButton onClick={toggleFilters} />
-        <form className={styles.form}>
-          <Search />
-          <Specializations />
-          <Skills />
-          <Complexity />
-          <Rating />
-        </form>
-      </Card>
-    </aside>
+    <Aside ref={ref} isOpen={isOpen}>
+      <CloseButton onClick={toggle} />
+      <form className={styles.form}>
+        <Search />
+        <Specializations />
+        <Skills />
+        <Complexity />
+        <Rating />
+      </form>
+    </Aside>
   );
 }
 

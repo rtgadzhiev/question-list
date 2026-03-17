@@ -1,13 +1,15 @@
+import { Outlet } from 'react-router';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import MainContent from '../MainContent/MainContent';
 import styles from './Layout.module.css';
 
 function Layout() {
   return (
     <div className={styles.layout}>
       <Header />
-      <MainContent />
+      <main className={styles.main}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

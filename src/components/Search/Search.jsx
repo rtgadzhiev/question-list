@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react';
-
 import SearchInput from '../ui/SearchInput/SearchInput';
 import { useDebounce } from '../../helpers/hooks/useDebounce';
-import useQuestions from '../../helpers/hooks/useQuestions';
-import useQuestionsFilters from '../../helpers/hooks/useQuestionsFilters';
+import { useSearchParams } from 'react-router';
 
 function Search() {
-  const { questionsFilters } = useQuestions();
-  const { changeQuestionsFilters } = useQuestionsFilters();
-
-  const [value, setValue] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const title = searchParams.get('title') || '';
+  const [value, setValue] = useState(title);
   const debouncedValue = useDebounce(value, 1000);
 
   useEffect(() => {
-    if (debouncedValue !== questionsFilters?.title) {
-      changeQuestionsFilters('title', debouncedValue);
-      changeQuestionsFilters('page', 1);
+    if (debouncedValue !== title) {
+      const newParams = new URLSearchParams(searchParams);
+
+      if (debouncedValue === '') {
+        newParams.delete('title');
+      } else {
+        newParams.set('title', debouncedValue);
+      }
+
+      newParams.delete('page');
+      setSearchParams(newParams);
     }
   }, [debouncedValue]);
 
@@ -26,9 +31,17 @@ function Search() {
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (value !== questionsFilters?.title) {
-        changeQuestionsFilters('title', value);
-        changeQuestionsFilters('page', 1);
+      if (value !== title) {
+        const newParams = new URLSearchParams(searchParams);
+
+        if (value === '') {
+          newParams.delete('title');
+        } else {
+          newParams.set('title', value);
+        }
+
+        newParams.delete('page');
+        setSearchParams(newParams);
       }
     }
   };

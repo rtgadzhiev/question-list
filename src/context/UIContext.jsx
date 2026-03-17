@@ -6,14 +6,15 @@ import useToggle from '../helpers/hooks/useToggle';
 export const UIContext = createContext(null);
 
 export function UIProvider({ children }) {
-  const [isFiltersOpen, toggleFilters, setFiltersOpen] = useToggle(false);
+  const [isOpen, toggle, setIsOpen] = useToggle(false);
+  console.log(isOpen);
 
-  const closeFilters = () => setFiltersOpen(false);
-  const filtersRef = useClickOutside(closeFilters);
+  const closeFilters = () => setIsOpen(false);
+  const ref = useClickOutside(closeFilters);
 
   const value = useMemo(
-    () => ({ isFiltersOpen, toggleFilters, filtersRef }),
-    [isFiltersOpen, toggleFilters],
+    () => ({ isOpen, setIsOpen, toggle, ref }),
+    [isOpen, toggle, setIsOpen, ref],
   );
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;

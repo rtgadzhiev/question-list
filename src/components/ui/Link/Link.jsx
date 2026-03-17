@@ -1,17 +1,28 @@
 import clsx from 'clsx';
 import styles from './Link.module.css';
+import { NavLink } from 'react-router';
+import { ROUTES } from '../../../constants/routes';
 
-function Link({ className, href = '#', children, isActive, tabIndex, title }) {
+function Link({
+  className,
+  to = ROUTES.HOME,
+  children,
+  isActive,
+  tabIndex,
+  title,
+  replace,
+}) {
   return (
-    <a
+    <NavLink
       className={clsx(styles.link, { [styles.isActive]: isActive }, className)}
-      href={href}
+      to={to}
       tabIndex={tabIndex}
       title={title}
       aria-label={title}
+      replace={replace}
     >
       {children}
-    </a>
+    </NavLink>
   );
 }
 

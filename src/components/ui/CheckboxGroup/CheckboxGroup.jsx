@@ -21,7 +21,7 @@ function CheckboxGroup({
         {isLoading ? (
           <Skeleton className={styles.skeleton} count={skeletonCount} />
         ) : (
-          options?.data.map((option) => (
+          options?.map((option) => (
             <FilterCheckbox
               className={styles.checkbox}
               key={option.id}

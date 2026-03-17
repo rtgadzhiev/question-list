@@ -1,0 +1,32 @@
+import Dropdown from '../ui/Dropdown/Dropdown';
+import Link from '../ui/Link/Link';
+import icon from '../../assets/images/icons/dropdown-dots-icon.svg';
+import styles from './DetailDropdown.module.css';
+import useDropdown from '../../helpers/hooks/useDropdown';
+import useDropdownPosition from '../../helpers/hooks/useDropdownPosition';
+
+function DetailDropdown({ tabIndex, to }) {
+  const [isOpen, toggleDropdown, dropdownRef] = useDropdown(false);
+  const dropdownPosistion = useDropdownPosition(dropdownRef);
+
+  return (
+    <Dropdown
+      className={styles.dropdown}
+      ref={dropdownRef}
+      isOpen={isOpen}
+      onToggle={toggleDropdown}
+      trigger={
+        <img className={styles.icon} src={icon} alt="" width="15" height="15" />
+      }
+      content={
+        <Link className={styles.link} to={to}>
+          Подробнее
+        </Link>
+      }
+      position={dropdownPosistion}
+      tabIndex={tabIndex}
+    />
+  );
+}
+
+export default DetailDropdown;
