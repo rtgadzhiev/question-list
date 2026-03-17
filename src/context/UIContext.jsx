@@ -7,6 +7,7 @@ export const UIContext = createContext(null);
 
 export function UIProvider({ children }) {
   const [isOpen, toggle, setIsOpen] = useToggle(false);
+  console.log(isOpen);
 
   const closeFilters = () => setIsOpen(false);
   const ref = useClickOutside(closeFilters);

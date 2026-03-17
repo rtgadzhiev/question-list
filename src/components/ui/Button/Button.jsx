@@ -6,7 +6,7 @@ function Button({
   className,
   onClick,
   isDisabled = false,
-  type,
+  type = 'button',
   ref,
   tabIndex,
   title,

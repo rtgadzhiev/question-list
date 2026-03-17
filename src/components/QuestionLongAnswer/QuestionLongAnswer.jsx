@@ -6,9 +6,10 @@ import useToggle from '../../helpers/hooks/useToggle';
 import clsx from 'clsx';
 import useHeightObserver from '../../helpers/hooks/useHeightObserver';
 import arrow from '../../assets/images/icons/chevron-down-icon.svg';
+import Skeleton from '../ui/Skeleton/Skeleton';
 
 function QuestionLongAnswer() {
-  const { question } = useQuestion();
+  const { question, isLoading } = useQuestion();
   const [isOpen, toggle] = useToggle(false);
   const { contentRef, height } = useHeightObserver();
 
@@ -16,15 +17,17 @@ function QuestionLongAnswer() {
     <Card className={styles.card} isShadow={true}>
       <Title type="h2">Развёрнутый ответ</Title>
       <div
-        className={clsx(styles.answer, { [styles.isOpen]: isOpen })}
-        style={{ height: isOpen ? height + 55 : '400px' }}
+        className={styles.answer}
+        style={{ height: isOpen ? height + 45 : '400px' }}
       >
-        <div
-          ref={contentRef}
-          dangerouslySetInnerHTML={{ __html: question?.longAnswer }}
-        ></div>
+        <div ref={contentRef}>
+          <div dangerouslySetInnerHTML={{ __html: question?.longAnswer }}></div>
+        </div>
       </div>
-      <button className={styles.button} onClick={toggle}>
+      <button
+        className={clsx(styles.button, { [styles.isOpen]: isOpen })}
+        onClick={toggle}
+      >
         <img
           className={clsx(styles.arrow, { [styles.isOpen]: isOpen })}
           src={arrow}
