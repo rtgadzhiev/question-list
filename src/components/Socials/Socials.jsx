@@ -8,7 +8,7 @@ function Socials() {
       <ul className={styles.socials}>
         {SOCIALS_ITEMS.map((item) => (
           <li key={item.id}>
-            <Link href="">
+            <Link>
               <img
                 className={styles.icon}
                 src={item.icon}

@@ -1,20 +1,29 @@
-import Container from '../layout/Container/Container';
-import Questions from '../Questions/Questions';
-import QuestionsFilters from '../QuestionsFilters/QuestionsFilters';
-import { QuestionsProvider } from '../../context/QuestionsContext';
-import { UIProvider } from '../../context/UIContext';
+import Card from '../ui/Card/Card';
+import QuestionsAccordion from '../QuestionsAccordion/QuestionsAccordion';
+import QuestionsPagination from '../QuestionsPagination/QuestionsPagination';
+import QuestionsTitle from '../QuestionsTitle/QuestionsTitle';
 import styles from './QuestionsSection.module.css';
+import { useUI } from '../../helpers/hooks/useUI';
+import { QuestionsProvider } from '../../context/QuestionsContext';
+import icon from '../../assets/images/icons/filters-button-icon.svg';
+import IconButton from '../ui/IconButton/IconButton';
 
 function QuestionsSection() {
+  const { toggle } = useUI();
+
   return (
-    <Container className={styles.container}>
-      <QuestionsProvider>
-        <UIProvider>
-          <Questions />
-          <QuestionsFilters />
-        </UIProvider>
-      </QuestionsProvider>
-    </Container>
+    <section>
+      <Card className={styles.card} isShadow={true}>
+        <header className={styles.header}>
+          <QuestionsTitle />
+          <IconButton onClick={toggle} title="Открыть фильтры" icon={icon} />
+        </header>
+        <QuestionsProvider>
+          <QuestionsAccordion />
+          <QuestionsPagination />
+        </QuestionsProvider>
+      </Card>
+    </section>
   );
 }
 

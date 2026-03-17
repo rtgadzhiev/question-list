@@ -1,20 +1,11 @@
-import { BASE_URL } from '../constants/constants';
+import { BASE_URL } from '../constants/api';
 
-export async function apiRequest(pathname, filters = null) {
+export async function apiRequest(pathname, params) {
   const url = new URL(pathname, BASE_URL);
 
-  if (filters) {
-    Object.entries(filters).forEach(([key, value]) => {
-      if (value !== undefined && value !== null && value !== '') {
-        if (Array.isArray(value)) {
-          if (value.length > 0) {
-            url.searchParams.append(key, value.join(', '));
-          }
-        } else {
-          url.searchParams.append(key, value);
-        }
-      }
-    });
+  if (params) {
+    const searchParams = params;
+    url.search = searchParams;
   }
 
   const response = await fetch(url, {
